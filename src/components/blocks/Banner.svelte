@@ -11,7 +11,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient($medium-blue 0%, $dark-blue 100%);
   }
 
   .container {

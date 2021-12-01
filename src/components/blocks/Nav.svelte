@@ -1,5 +1,5 @@
 <script>
-  import ConnectButton from '../elements/ConnectButton.svelte'
+  import Wallet from '../elements/Wallet.svelte'
 </script>
 
 <style lang="scss">
@@ -13,11 +13,15 @@
     align-items: center;
   }
   .logo {
+    font-size: 1.5rem;
     font-family: $title-font;
+    vertical-align: middle;
+    margin: 0;
     img {
       display: inline-block;
       width: 1.5em;
       margin-right: 0.25em;
+      margin-top: -0.125em;
     }
   }
   nav {
@@ -38,7 +42,7 @@
     <nav>
       <ul>
         <li>
-          <ConnectButton />
+          <Wallet />
         </li>
       </ul>
     </nav>

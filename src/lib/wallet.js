@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
+import { persist, localStorage } from "@macfja/svelte-persistent-store"
 
 let myAlgoWallet;
-export const wallet = writable({});
+export const wallet = persist(writable({}), localStorage(), 'wallet');
 
 //
 // Init MyAlgo Connect
@@ -20,7 +21,10 @@ export async function connectWallet() {
   try {
     const accounts = await myAlgoWallet.connect();
     const addresses = accounts.map(account => account.address);
-    console.log(addresses, accounts);
+    wallet.update(store => ({
+      ...store,
+      address: addresses[0],
+    }));
     
   } catch (err) {
     console.error(err);

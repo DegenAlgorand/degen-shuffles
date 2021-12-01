@@ -4,6 +4,9 @@
 
 <style lang="scss" global>
 	@import "../styles/global";
+	main {
+		background: linear-gradient($medium-blue 0%, $dark-blue 60vh);
+	}
 </style>
 
 <svelte:head>
@@ -13,5 +16,7 @@
 
 <Nav />
 
-<slot></slot>
+<main>
+	<slot></slot>
+</main>
 
