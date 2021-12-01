@@ -1,4 +1,5 @@
 <script>
+	import Nav from '../components/blocks/Nav.svelte';
 </script>
 
 <style lang="scss" global>
@@ -6,9 +7,11 @@
 </style>
 
 <svelte:head>
-	<title>$DEGEN Token</title>
+	<title>DEGEN Shuffles</title>
 </svelte:head>
 
+
+<Nav />
 
 <slot></slot>
 

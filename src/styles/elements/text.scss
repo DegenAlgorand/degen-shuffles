@@ -17,7 +17,7 @@ body {
 
 .banner-title {
   @extend %title;
-  font-size: clamp(3rem, 12.5vw, 5rem);
+  font-size: clamp(2rem, 10vw, 4rem);
   line-height: 1.1;
   font-weight: bold;
   text-align: center;

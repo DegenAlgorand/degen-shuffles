@@ -14,16 +14,20 @@
 .btn { 
   @extend %btn;
   color: $white;
-  background: $dark-blue;
+  background: none;
+  border: 1px solid $white;
   padding: 1em 1.5em;
   border-radius: 0.25rem;
   display: inline-block;
   outline: none;
   text-decoration: none;
+  outline: none;
   &:hover {
     color: $white;
     background: $red;
+    border: 1px solid $red;
     text-decoration: none;
+    outline: none;
   }
 }
 

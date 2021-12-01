@@ -10,20 +10,8 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     position: relative;
-
-    &:before {
-      content: '';
-      background: radial-gradient(closest-side, rgba($red, 0.5) 0%, rgba($red,0) 100%);
-      width: 100%;
-      height: 200%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      animation: glow 2400ms infinite alternate ease-in-out;
-    }
+    background: linear-gradient($medium-blue 0%, $dark-blue 100%);
   }
 
   .container {
