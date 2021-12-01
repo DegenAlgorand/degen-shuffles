@@ -1,0 +1,57 @@
+@import './variables';
+
+
+//
+// Media Queries
+// =======================
+
+@mixin print() {
+  @media only print {
+    @content;
+  }
+}
+@mixin max-height($height){
+  @media only screen and (max-height: $height){
+    @content;
+  }
+}
+@mixin max-width($width){
+  @media only screen and (max-width: $width){
+    @content;
+  }
+}
+@mixin min-width($width){
+  @media only screen and (min-width: $width){
+    @content;
+  }
+}
+
+@mixin x-small-screen() {
+  @include max-width($breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin small-screen() {
+  @include max-width($breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin medium-screen() {
+  @include min-width($breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin large-screen() {
+  @include min-width($breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xlarge-screen() {
+  @include min-width($breakpoint-xl) {
+    @content;
+  }
+}

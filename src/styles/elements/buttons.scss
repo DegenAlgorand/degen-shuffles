@@ -1,0 +1,38 @@
+@import '../variables';
+@import '../mixins';
+
+%btn {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+  i {
+    margin-right: 0.25em;
+  }
+}
+
+.btn { 
+  @extend %btn;
+  color: $white;
+  background: $dark-blue;
+  padding: 1em 1.5em;
+  border-radius: 0.25rem;
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+    background: $red;
+    text-decoration: none;
+  }
+}
+
+
+.text-link {
+  @extend %btn;
+  color: $white;
+  display: inline-block;
+  &:hover {
+    color: $red;
+  }
+}

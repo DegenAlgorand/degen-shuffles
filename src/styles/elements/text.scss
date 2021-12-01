@@ -1,0 +1,91 @@
+@import '../variables';
+@import '../mixins';
+
+
+body {
+  font-family: $text-font;
+  color: $text-color;
+}
+
+//
+// Titles
+// ----------------------------------------------
+%title {
+  color: $title-color;
+  font-family: $title-font;
+}
+
+.banner-title {
+  @extend %title;
+  font-size: clamp(3rem, 12.5vw, 5rem);
+  line-height: 1.1;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.banner-subtitle {
+  color: $title-color;
+  font-family: $text-font;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  text-align: center;
+}
+
+.page-title {
+  @extend %title;  
+  font-size: 3rem;
+  text-align: center;
+  margin: 1em 0 1em;
+  .subtitle {
+    font-size: 0.325em;
+    font-style: italic;
+    font-family: $text-font;
+    display: block;
+  }
+}
+
+.section-title {
+  @extend %title;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 1.5em 0 0.75em;
+}
+
+
+//
+// Text
+// ----------------------------------------------
+.large-text{
+  font-size: clamp(1.125rem, 3vw, 1.25rem);
+  line-height: 1.5;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ol.list,
+ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0 0 0 2em;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0.5em;
+      left: 0.25em;
+      background: $red;
+      border-radius: 0.5em;
+      width: 0.5em;
+      height: 0.5em;
+    }
+  }
+}
