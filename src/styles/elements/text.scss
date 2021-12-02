@@ -51,6 +51,13 @@ body {
   margin: 1.5em 0 0.75em;
 }
 
+.menu-title {
+  font-size: clamp(1.25rem,46vw, 1.5rem);
+  line-height: 1.2;
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+
 
 //
 // Text

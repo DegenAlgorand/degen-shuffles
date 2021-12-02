@@ -1,12 +1,13 @@
 <script>
   import { fly, fade } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
-  import { wallet } from '../../lib/wallet';
+  import { wallet } from '../../stores/wallet';
   import { showWalletMenu, navBarHeight } from '../../stores/ui';
   import SelectConnector from './SelectConnector.svelte';
   function closeMenu () {
     showWalletMenu.set(false);
   }
+  $: console.log($wallet);
 </script>
 
 
@@ -43,7 +44,7 @@
     style={`padding-top: ${$navBarHeight}px;`}
     transition:fly|local={{x: 100, duration: 300, easing: quintOut }}
   >
-    {#if !$wallet.address}
+    {#if !$wallet.currentAddress}
       <SelectConnector />
     {:else}
       Select your account

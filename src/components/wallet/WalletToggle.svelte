@@ -1,5 +1,5 @@
 <script>
-  import { wallet } from '../../lib/wallet';
+  import { wallet } from '../../stores/wallet';
   import { showWalletMenu } from '../../stores/ui';
   import { tinifyAddress } from '../../helpers/address';
 
@@ -16,10 +16,10 @@
 
 <button class="btn" on:click|preventDefault={ toggleWalletPanel }>
   {#if !$showWalletMenu}
-    {#if !$wallet.address}
+    {#if !$wallet.currentAddress}
       Connect
     {:else}
-      { tinifyAddress($wallet.address) }
+      { tinifyAddress($wallet.currentAddress) }
     {/if}
   {:else}
     <i class="fas fa-times"></i>

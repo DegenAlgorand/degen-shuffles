@@ -23,4 +23,8 @@
     These ASAs are used to store shuffle configurations 
     and keep an history of the winners over time.   
   </p>
+  <p>
+    The odds of a wallet getting picked depend on the amount of $degen it holds, 
+    and decrease with each win. 
+  </p>
 </div>
