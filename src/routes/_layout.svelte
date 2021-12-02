@@ -1,10 +1,12 @@
 <script>
+	import { navBarHeight } from '../stores/ui';
 	import Nav from '../components/blocks/Nav.svelte';
+	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 </script>
 
 <style lang="scss" global>
 	@import "../styles/global";
-	main {
+	.app-wrapper { 
 		background: linear-gradient($medium-blue 0%, $dark-blue 60vh);
 	}
 </style>
@@ -13,10 +15,14 @@
 	<title>DEGEN Shuffles</title>
 </svelte:head>
 
-
 <Nav />
+<WalletMenu />
 
-<main>
+<main 
+	class="app-wrapper" 
+	style={`padding-top: ${$navBarHeight}px;`}
+>
 	<slot></slot>
 </main>
+
 

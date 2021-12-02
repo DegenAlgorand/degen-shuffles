@@ -1,9 +1,17 @@
 <script>
-  import Wallet from '../elements/Wallet.svelte'
+  import { navBarHeight } from '../../stores/ui'
+  import WalletToggle from '../wallet/WalletToggle.svelte'
 </script>
 
 <style lang="scss">
   @import '../../styles/variables';
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+  }
   .full-width-container {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -32,7 +40,7 @@
 </style>
 
 
-<header>
+<header bind:clientHeight={$navBarHeight}>
   <div class="full-width-container">
     <h1 class="logo">
       <img src="/images/degen-shuffles-white.svg" alt="DEGEN Shuffles logo" />
@@ -42,7 +50,7 @@
     <nav>
       <ul>
         <li>
-          <Wallet />
+          <WalletToggle />
         </li>
       </ul>
     </nav>

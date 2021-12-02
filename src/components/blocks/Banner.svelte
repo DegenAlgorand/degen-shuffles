@@ -5,7 +5,7 @@
 <style lang="scss">
   @import '../../styles/variables';
   .wrapper {
-    min-height: 60vh;
+    min-height: 40vh;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;

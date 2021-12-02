@@ -5,16 +5,21 @@
 body {
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
   background: $bg-color;
+  overflow-x: hidden;
+  position: relative;
 }
 
 :root {
   --container-width: 100%;
   --container-padding: 1.5rem;
+  --wallet-menu-width: 80%;
+
   @include small-screen {
     --container-width: 90%;
     --container-padding: 2rem;
+    --wallet-menu-width: 24rem;
+
   }
   @include medium-screen {
     --container-width: 80%;

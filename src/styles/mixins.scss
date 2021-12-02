@@ -33,7 +33,7 @@
 }
 
 @mixin small-screen() {
-  @include max-width($breakpoint-md) {
+  @include min-width($breakpoint-sm) {
     @content;
   }
 }
