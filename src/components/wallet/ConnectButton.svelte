@@ -1,5 +1,5 @@
 <script>
-  import Signer from '../../lib/signer';
+  import Signer from '../../lib/Signer';
 </script>
 
 

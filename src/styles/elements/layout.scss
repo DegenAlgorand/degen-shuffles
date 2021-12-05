@@ -1,13 +1,16 @@
 @import '../variables';
 @import '../mixins';
 
-
+html, body {
+  min-height: 100%;
+}
 body {
   padding: 0;
   margin: 0;
   background: $bg-color;
   overflow-x: hidden;
   position: relative;
+  background: $dark-blue linear-gradient($medium-blue 0%, $dark-blue 60vh) no-repeat top center;
 }
 
 :root {

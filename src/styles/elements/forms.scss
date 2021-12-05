@@ -1,0 +1,44 @@
+@import '../variables';
+@import '../mixins';
+
+//
+// Inputs
+// ----------------------------------------------
+%input {
+  color: $white;
+  font-size: 1em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  padding: 1em 1.5em;
+  border-radius: 0.25rem;
+  border: 1px solid $border-color;
+  background: none;
+  outline: none;
+  
+  &:focus {
+    border-color: $white;
+    outline: none;
+  }
+}
+
+.input {
+  @extend %input;
+}
+
+//
+// Label
+// ----------------------------------------------
+.label {
+  display: block;
+  text-transform: uppercase;
+}
+
+
+//
+// Errors
+// ----------------------------------------------
+.error-message {
+  color: $red;
+  margin-top: 0.5em;
+}

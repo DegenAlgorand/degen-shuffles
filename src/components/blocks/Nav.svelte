@@ -25,6 +25,13 @@
     font-family: $title-font;
     vertical-align: middle;
     margin: 0;
+    a {
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     img {
       display: inline-block;
       width: 1.5em;
@@ -43,8 +50,10 @@
 <header bind:clientHeight={$navBarHeight}>
   <div class="full-width-container">
     <h1 class="logo">
-      <img src="/images/degen-shuffles-white.svg" alt="DEGEN Shuffles logo" />
-      DEGEN Shuffles
+      <a href="/">
+        <img src="/images/degen-shuffles-white.svg" alt="DEGEN Shuffles logo" />
+        DEGEN Shuffles
+      </a>
     </h1>
 
     <nav>

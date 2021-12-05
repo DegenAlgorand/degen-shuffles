@@ -6,9 +6,6 @@
 
 <style lang="scss" global>
 	@import "../styles/global";
-	.app-wrapper { 
-		background: linear-gradient($medium-blue 0%, $dark-blue 60vh);
-	}
 </style>
 
 <svelte:head>

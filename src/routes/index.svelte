@@ -7,6 +7,13 @@
   .container {
     padding-bottom: 5rem
   }
+  .cta {
+    text-align: center;
+    margin: 2em 0;
+    padding: 2em 0;
+    border-top: 1px solid $border-color; 
+    border-bottom: 1px solid $border-color; 
+  }
 </style>
 
 
@@ -27,4 +34,11 @@
     The odds of a wallet getting picked depend on the amount of $degen it holds, 
     and decrease with each win. 
   </p>
+
+  <div class="cta">
+    <a class="btn" href="/create">
+      Create a Shuffle
+    </a>
+  </div>
+
 </div>

@@ -5,7 +5,6 @@
 <style lang="scss">
   @import '../../styles/variables';
   .wrapper {
-    min-height: 40vh;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -15,7 +14,7 @@
 
   .container {
     position: relative;
-    padding-top: 4rem;
+    padding-top: 2rem;
     padding-bottom: 2rem;
 
     z-index: 1;
