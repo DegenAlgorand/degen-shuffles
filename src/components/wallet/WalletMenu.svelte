@@ -3,11 +3,13 @@
   import { quintOut } from 'svelte/easing';
   import { wallet } from '../../stores/wallet';
   import { showWalletMenu, navBarHeight } from '../../stores/ui';
-  import SelectConnector from './SelectConnector.svelte';
+  import ConnectButton from './ConnectButton.svelte';
+  import DisconnectButton from './DisconnectButton.svelte';
+  import SelectAddress from './SelectAddress.svelte';
+
   function closeMenu () {
     showWalletMenu.set(false);
   }
-  $: console.log($wallet);
 </script>
 
 
@@ -45,11 +47,13 @@
     transition:fly|local={{x: 100, duration: 300, easing: quintOut }}
   >
     {#if !$wallet.currentAddress}
-      <SelectConnector />
+      <ConnectButton />
     {:else}
-      Select your account
+      <SelectAddress />
+      <DisconnectButton />
     {/if}
   </nav>
+
 
   <div 
     class="overlay" 

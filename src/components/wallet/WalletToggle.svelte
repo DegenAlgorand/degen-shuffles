@@ -1,7 +1,7 @@
 <script>
   import { wallet } from '../../stores/wallet';
   import { showWalletMenu } from '../../stores/ui';
-  import { tinifyAddress } from '../../helpers/address';
+  import { shortenAddress } from '../../helpers/address';
 
   function toggleWalletPanel() {
     showWalletMenu.set(!$showWalletMenu);
@@ -19,7 +19,7 @@
     {#if !$wallet.currentAddress}
       Connect
     {:else}
-      { tinifyAddress($wallet.currentAddress) }
+      { shortenAddress($wallet.currentAddress) }
     {/if}
   {:else}
     <i class="fas fa-times"></i>
