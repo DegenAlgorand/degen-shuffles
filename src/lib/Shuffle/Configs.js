@@ -1,36 +1,31 @@
-import Response from './Response';
 
-export default class Shuffle {
-
-  constructor () {
+export default class Configs {
+  constructor (id) {
     this.configs = {
       name: 'Untitled',
     };
   }
 
-
   //
   // Validate configs
   // ----------------------------------------------
-  static validateConfigs (newConfigs) {
+  validateConfigs (newConfigs) {
+    this.clearErrors();
     const configs = {
       ...this.configs,
       ...newConfigs,
     }
-    const response = new Response(configs);
-
     // Name (required)
     if (!configs.name || typeof configs.name !== 'string') {
-      response.addError({
+      this.addError({
         code: 'REQUIRED',
         key: 'name', 
         message: 'Shuffle name is required',
       });
     }
-
-    // Config total length
-    return response;
+    if (!this.hasErrors) {
+      this.configs = configs;
+    }
+    return this.hasErrors;
   }
-
-
 }

@@ -1,5 +1,5 @@
 <script>
-  import Signer from '../../lib/Signer';
+  import signer from '../../lib/signer';
 </script>
 
 
@@ -18,7 +18,7 @@
   Connect your wallet
 </h2>
 
-<button class="btn" on:click={Signer.connect}>
+<button class="btn" on:click={signer.connect}>
   <img src="/images/myalgo-logo.png" alt="MyAlgo Wallet">
 </button>
  

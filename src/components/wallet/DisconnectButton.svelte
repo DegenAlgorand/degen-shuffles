@@ -1,5 +1,5 @@
 <script>
-  import Signer from '../../lib/Signer';
+  import signer from '../../lib/signer';
 </script>
 
 
@@ -10,7 +10,7 @@
   }
 </style>
 
-<button class="ghost-btn" on:click={Signer.disconnect}>
+<button class="ghost-btn" on:click={signer.disconnect}>
   Disconnect
 </button>
  

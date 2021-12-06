@@ -1,18 +1,23 @@
 <script>
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { omit } from 'lodash';
   import { wallet } from '../stores/wallet';
   import { shortenAddress } from '../helpers/address';
   import Shuffle from '../lib/Shuffle';
   import Banner from '../components/blocks/Banner.svelte';
   import TextField from '../components/forms/fields/TextField.svelte';
 
-  const configs = writable({});
-  setContext('form', configs);
+  const shuffle = new Shuffle();
+  const formData = writable({});
+  setContext('form', formData);
 
-  function submit() {
-    configs.update(data => Shuffle.validateConfigs(data));
-    console.log($configs);
+  async function submit() {
+    shuffle.validateConfigs(omit($formData, ['errors']));
+    formData.set({ ...shuffle.configs, errors: shuffle.errors })
+    
+    if (shuffle.hasError) return;
+    await shuffle.create();
   }
 </script>
 
