@@ -16,6 +16,15 @@
   }
 </script>
 
+<style lang="scss">
+  @import '../../../styles/variables';
+  .error-message {
+    color: $red;
+    margin-top: 0.5em;
+  }
+</style>
+
+
 {#if hasError}
   <div class="message error-message">
     {message}

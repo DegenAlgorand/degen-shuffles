@@ -11,13 +11,14 @@ export default class Create {
     const $wallet = get(wallet);
     if (!$wallet.currentAddress) return;
 
-    
+    console.log(this.configs);
+
     const response = await algoClient.txn({
       fee: 1000,
       flatFee: true,
       type: 'acfg',
       from: $wallet.currentAddress,
-      assetName: 'DEGEN Shuffle',
+      assetName: this.configs.assetName,
       assetUnitName: 'DGNSHUFF',
       assetDecimals: 0,
       assetTotal: 1,
@@ -27,9 +28,7 @@ export default class Create {
       assetDefaultFrozen: false
     });
    
-    
     console.log(response)
-
 
     return this.hasErrors;
   }

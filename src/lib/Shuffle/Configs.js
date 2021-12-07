@@ -2,7 +2,8 @@
 export default class Configs {
   constructor (id) {
     this.configs = {
-      name: 'Untitled',
+      assetName: '$DEGEN Shuffle',
+      displayName: 'My Shuffle',
     };
   }
 
@@ -15,14 +16,22 @@ export default class Configs {
       ...this.configs,
       ...newConfigs,
     }
-    // Name (required)
-    if (!configs.name || typeof configs.name !== 'string') {
+    // ASA Name
+    if (!configs.assetName || typeof configs.assetName !== 'string') {
       this.addError({
         code: 'REQUIRED',
-        key: 'name', 
-        message: 'Shuffle name is required',
+        key: 'assetName', 
+        message: 'ASA name is required',
       });
     }
+    if (configs.assetName.length > 32) {
+      this.addError({
+        code: 'TOO_LONG',
+        key: 'assetName', 
+        message: 'The maximum length for an ASA name is 32 characters',
+      });
+    }
+
     if (!this.hasErrors) {
       this.configs = configs;
     }

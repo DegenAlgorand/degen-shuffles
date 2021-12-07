@@ -4,14 +4,15 @@
   export let component;
   export let name;
   export let label;
+  export let info;
   export let value;
 </script>
 
 
 
 <div class="field">
-  {#if label}
-    <Label {label} {name} />
+  {#if label || info}
+    <Label {label} {info} {name} />
   {/if}
 
   <svelte:component 

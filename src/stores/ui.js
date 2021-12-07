@@ -11,4 +11,12 @@ export const navBarHeight = writable(0);
 // -------------------------------------------
 export const showWalletMenu = writable(false);
 
+//
+// App Loading state 
+// ----------------------------------------------
+export const loading = writable(false);
 
+//
+// Popup state/component
+// ----------------------------------------------
+export const popup = writable(null)

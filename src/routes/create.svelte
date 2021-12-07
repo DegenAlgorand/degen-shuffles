@@ -3,32 +3,33 @@
   import { writable } from 'svelte/store';
   import { omit } from 'lodash';
   import { wallet } from '../stores/wallet';
+  import { loading } from '../stores/ui';
   import { shortenAddress } from '../helpers/address';
   import Shuffle from '../lib/Shuffle';
   import Banner from '../components/blocks/Banner.svelte';
-  import TextField from '../components/forms/fields/TextField.svelte';
-
+  import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte';
+  
   const shuffle = new Shuffle();
-  const formData = writable({});
+  const formData = writable(shuffle.configs);
   setContext('form', formData);
 
-  async function submit() {
+  async function submit(e) {
+    e.preventDefault();
+    loading.set(true);
     shuffle.validateConfigs(omit($formData, ['errors']));
-    formData.set({ ...shuffle.configs, errors: shuffle.errors })
-    
-    if (shuffle.hasError) return;
+    formData.set({ ...shuffle.configs, errors: shuffle.errors }) 
+    if (shuffle.hasError) { 
+      loading.set(false);
+      return;
+    }
     await shuffle.create();
+    loading.set(false);
   }
 </script>
 
 
 <style lang="scss">
-  form {
-    margin: 2em 0;
-  }
-  .actions {
-    margin-top: 1.5em;
-  }
+ 
 </style>
 
 
@@ -42,21 +43,12 @@
 {#if $wallet.currentAddress }
   <div class="container">
     <p>
-      Creating a shuffle will add an ASA to your wallet ({ shortenAddress($wallet.currentAddress) }). 
-      This asset will be used to store the shuffle configs and its winners history. 
+      Creating a shuffle will add an ASA to your wallet ({ shortenAddress($wallet.currentAddress) }). <br/> 
+      This asset will be used to store the shuffle configs and winners history. 
     </p>
 
-    <form on:submit|preventDefault={submit}>
-      <TextField
-        label="Shuffle name"
-        name="name"
-      />
-      <div class="actions">
-        <button type="submit" class="btn">
-          Submit
-        </button>
-      </div>
-    </form>
+    <ShuffleConfigs on:submit={submit} />
+    
   </div>
   
 

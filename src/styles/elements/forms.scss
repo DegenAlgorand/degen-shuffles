@@ -12,7 +12,7 @@
   padding: 1em 1.5em;
   border-radius: 0.25rem;
   border: 1px solid $border-color;
-  background: none;
+  background: $dark-blue;
   outline: none;
   
   &:focus {
@@ -23,21 +23,4 @@
 
 .input {
   @extend %input;
-}
-
-//
-// Label
-// ----------------------------------------------
-.label {
-  display: block;
-  text-transform: uppercase;
-}
-
-
-//
-// Errors
-// ----------------------------------------------
-.error-message {
-  color: $red;
-  margin-top: 0.5em;
 }

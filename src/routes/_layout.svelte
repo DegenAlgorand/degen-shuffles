@@ -3,10 +3,14 @@
 	import Nav from '../components/blocks/Nav.svelte';
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 	import Scripts from '../components/wallet/Scripts.svelte';
+	import LoadingAnim from '../components/elements/LoadingAnim.svelte';
 </script>
 
 <style lang="scss" global>
 	@import "../styles/global";
+	.app-wrapper {
+		padding-bottom: 4rem;
+	}
 </style>
 
 <svelte:head>
@@ -23,6 +27,8 @@
 	<slot></slot>
 </main>
 
+
+<LoadingAnim />
 <Scripts />
 
 
