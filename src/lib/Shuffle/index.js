@@ -1,4 +1,4 @@
-import Errors from './Errors';
+import Errors from '../Errors';
 import Configs from './Configs';
 import Create from './Create';
 import { aggregate } from '../../helpers/classes';

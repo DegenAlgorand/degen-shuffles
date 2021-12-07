@@ -1,5 +1,5 @@
 <script>
-  import signer from '../../lib/signer';
+  import algoClient from '../../lib/algoClient';
 </script>
 
 
@@ -18,7 +18,7 @@
   Connect your wallet
 </h2>
 
-<button class="btn" on:click={signer.connect}>
+<button class="btn" on:click={algoClient.connect}>
   <img src="/images/myalgo-logo.png" alt="MyAlgo Wallet">
 </button>
  

@@ -2,6 +2,7 @@
 	import { navBarHeight } from '../stores/ui';
 	import Nav from '../components/blocks/Nav.svelte';
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
+	import Scripts from '../components/wallet/Scripts.svelte';
 </script>
 
 <style lang="scss" global>
@@ -21,5 +22,7 @@
 >
 	<slot></slot>
 </main>
+
+<Scripts />
 
 

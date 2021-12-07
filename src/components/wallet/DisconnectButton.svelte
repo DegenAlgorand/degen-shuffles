@@ -1,5 +1,5 @@
 <script>
-  import signer from '../../lib/signer';
+  import algoClient from '../../lib/algoClient';
 </script>
 
 
@@ -10,7 +10,7 @@
   }
 </style>
 
-<button class="ghost-btn" on:click={signer.disconnect}>
+<button class="ghost-btn" on:click={algoClient.disconnect}>
   Disconnect
 </button>
  

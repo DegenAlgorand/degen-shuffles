@@ -1,6 +1,5 @@
 import { get } from 'svelte/store';
-import signer from '../signer';
-import client from '../client';
+import algoClient from '../algoClient';
 import { wallet } from '../../stores/wallet';
 
 export default class Create {
@@ -10,10 +9,10 @@ export default class Create {
   async create () {
     if (this.hasErrors) return;
     const $wallet = get(wallet);
-    if (!$wallet.currentAddress) ReadableStreamDefaultController;
-    const params = await client.getTxnParams();
-    const txn = {
-      ...params,
+    if (!$wallet.currentAddress) return;
+
+    
+    const response = await algoClient.txn({
       fee: 1000,
       flatFee: true,
       type: 'acfg',
@@ -24,11 +23,11 @@ export default class Create {
       assetTotal: 1,
       assetURL: 'degenshuffles.xyz',
       assetManager: $wallet.currentAddress,
+      assetReserve: $wallet.currentAddress,
       assetDefaultFrozen: false
-    }
-    const signedTxn = await signer.sign(txn);
-    const response = await client.sendTxn(signedTxn);
-
+    });
+   
+    
     console.log(response)
 
 
