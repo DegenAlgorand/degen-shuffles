@@ -1,7 +1,8 @@
-
 export default class Init {
   constructor () {
     this.apiUrl = 'https://api.testnet.algoexplorer.io';
+    this.indexerUrl = 'https://api.testnet.algoexplorer.io/idx2';
+
     this.myAlgo = undefined;
     this.algoSdk = undefined;
   }

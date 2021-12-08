@@ -30,6 +30,7 @@
     info="You can edit this one later if needed."
     name="displayName"
   />
+  
   <div class="actions">
     <button type="submit" class="btn">
       Submit

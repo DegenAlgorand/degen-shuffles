@@ -28,8 +28,6 @@ export default class Create {
       assetDefaultFrozen: false
     });
    
-    console.log(response)
-
-    return this.hasErrors;
+    return response;
   }
 }

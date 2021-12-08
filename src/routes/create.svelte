@@ -6,6 +6,7 @@
   import { loading } from '../stores/ui';
   import { shortenAddress } from '../helpers/address';
   import Shuffle from '../lib/Shuffle';
+  import algoClient from '../lib/algoClient';
   import Banner from '../components/blocks/Banner.svelte';
   import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte';
   
@@ -22,7 +23,14 @@
       loading.set(false);
       return;
     }
-    await shuffle.create();
+    const response = await shuffle.create();
+    console.log(response)
+
+    if (response.txId) {
+      const asset = await algoClient.indexer.lookupTransactionByID(response.txId).do();
+      console.log(asset)
+    }
+
     loading.set(false);
   }
 </script>
