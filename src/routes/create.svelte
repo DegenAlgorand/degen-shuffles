@@ -23,6 +23,11 @@
       loading.set(false);
       return;
     }
+
+    const aaa = await algoClient.lookupAssetBalances('49898747')
+    console.log(aaa);
+    return;
+
     const response = await shuffle.create();
     console.log(response)
 

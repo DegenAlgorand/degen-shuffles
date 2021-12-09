@@ -1,5 +1,3 @@
-import { popup } from '../../stores/ui'; 
-import ErrorPopup from '../../components/popups/ErrorPopup.svelte'; 
 
 export default class Txn {
 
@@ -19,7 +17,7 @@ export default class Txn {
     }
     catch (error) {
       console.dir(error);
-      popup.set({component: ErrorPopup, props: {message: error.message}})
+      this.popError(error.message);
     }
   }
 
