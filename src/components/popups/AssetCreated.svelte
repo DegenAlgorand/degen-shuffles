@@ -1,15 +1,19 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   export let asaId = '...';
-  export const onClose = close;
-
-  function close(e) {
-    if (e) e.preventDefault();
-    console.log('close')
+  
+  const dispatch = createEventDispatcher();
+  function close() {
+    dispatch('close');
   }
 </script>
 
 <style lang="scss">
   @import '../../styles/variables';
+  .wrapper {
+    color: $medium-blue;
+    text-align: center;
+  }
   .title {
     color: $medium-blue;
     margin: 0;
@@ -20,15 +24,20 @@
   .fas {
     margin-right: 0.5em;
   }
+  p {
+    margin: 1em 0;
+  }
 </style>
 
 <div class="wrapper">
   <h2 class="title">
     <i class="fas fa-check-circle"></i>
-    Shuffle Asset created
+    Your shuffle is minted!
   </h2>
-  <p>Asset id : {asaId}</p>
-  <a class="btn" href="/shuffle?id={asaId}">
-    Go to your shuffle
+  <p>
+    Asset id : {asaId}
+  </p>
+  <a class="dark-btn" href="/shuffle?id={asaId}" on:click={close}>
+    Go check it out
   </a>
 </div>

@@ -13,7 +13,7 @@ export default class Create {
 
     console.log(this.configs);
 
-    const response = await algoClient.txn({
+    const txn = await algoClient.txn({
       fee: 1000,
       flatFee: true,
       type: 'acfg',
@@ -27,7 +27,7 @@ export default class Create {
       assetReserve: $wallet.currentAddress,
       assetDefaultFrozen: false
     });
-   
-    return response;
+
+    return txn;
   }
 }

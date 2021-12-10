@@ -13,7 +13,8 @@ export default class Txn {
       }
       const signedTxn = await this.signTxn(txn);
       const response = await this.sendTxn(signedTxn);
-      return response;
+      const confirmation = await this.wait(this.algoSdk, response.txId, 10);
+      return confirmation;
     }
     catch (error) {
       console.dir(error);

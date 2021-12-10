@@ -3,12 +3,13 @@
   import { writable } from 'svelte/store';
   import { omit } from 'lodash';
   import { wallet } from '../stores/wallet';
-  import { loading } from '../stores/ui';
+  import { loading, popup } from '../stores/ui';
   import { shortenAddress } from '../helpers/address';
   import Shuffle from '../lib/Shuffle';
-  import algoClient from '../lib/algoClient';
   import Banner from '../components/blocks/Banner.svelte';
   import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte';
+  import AssetCreated from '../components/popups/AssetCreated.svelte';
+
   
   const shuffle = new Shuffle();
   const formData = writable(shuffle.configs);
@@ -24,18 +25,15 @@
       return;
     }
 
-    const aaa = await algoClient.lookupAssetBalances('49898747')
-    console.log(aaa);
-    return;
-
-    const response = await shuffle.create();
-    console.log(response)
-
-    if (response.txId) {
-      const asset = await algoClient.indexer.lookupTransactionByID(response.txId).do();
-      console.log(asset)
+    const txn = await shuffle.create();
+    if (txn['asset-index']) {
+      popup.set({
+        component: AssetCreated, 
+        props: {
+          asaId: txn['asset-index'],
+        },
+      });
     }
-
     loading.set(false);
   }
 </script>

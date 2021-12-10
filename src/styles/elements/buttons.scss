@@ -45,7 +45,18 @@
   }
 }
 
-
+.dark-btn {
+  @extend %btn;
+  color: $white;
+  background: $medium-blue;
+  border: 1px solid $medium-blue;
+  &:hover {
+    color: $white;
+    background: $red;
+    border: 1px solid $red;
+    
+  }
+}
 
 
 .text-link {

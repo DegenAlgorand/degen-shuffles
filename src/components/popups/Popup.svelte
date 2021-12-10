@@ -74,7 +74,7 @@
       <svelte:component 
         this={$popup.component} 
         {...$popup.props}
-        bind:onClose 
+        on:close={close}
       />   
     </div>
 
