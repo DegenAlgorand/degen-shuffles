@@ -19,6 +19,12 @@
     justify-content: center;
     align-items: center;
   }
+  .wrapper {
+    text-align: center;
+  }
+  .message {
+    margin-top: 1em;
+  }
   .spinner {
     width: 4rem;
     animation: spin 2000ms infinite forwards ease-in-out;
@@ -40,10 +46,17 @@
     class="loading" 
     transition:fade|local={{duration: 300 }}
   >
-    <img 
-      class="spinner"
-      src="/images/degen-shuffles-white.svg" 
-      alt="Loading..." 
-    />
+    <div class="wrapper">
+      <img 
+        class="spinner"
+        src="/images/degen-shuffles-white.svg" 
+        alt="Loading..." 
+      />
+      {#if typeof $loading === 'string'}
+        <div class="message">
+          {$loading}
+        </div>
+      {/if}
+    </div>
   </div>
 {/if}

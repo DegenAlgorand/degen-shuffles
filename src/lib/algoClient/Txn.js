@@ -1,4 +1,4 @@
-
+import { loading } from '../../stores/ui'
 export default class Txn {
 
   //
@@ -6,13 +6,17 @@ export default class Txn {
   // ----------------------------------------------
   async txn(txn) {
     try {
+      loading.set('Creating transaction...');
       const params = await this.getTxnParams();
       txn = {
         ...params,
         ...txn,
       }
+      loading.set('Signing transaction...');
       const signedTxn = await this.signTxn(txn);
+      loading.set('Sending transaction...');
       const response = await this.sendTxn(signedTxn);
+      loading.set('Waiting for confirmation...');
       const confirmation = await this.wait(this.algoSdk, response.txId, 10);
       return confirmation;
     }

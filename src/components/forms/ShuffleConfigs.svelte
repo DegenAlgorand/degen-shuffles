@@ -27,7 +27,7 @@
 
   <TextField
     label="Display name"
-    info="You can edit this one later if needed."
+    info="Can be edited later if needed. 64 characters max."
     name="displayName"
   />
   

@@ -11,6 +11,7 @@
   "dependencies": {
     "@macfja/svelte-persistent-store": "^1.2.0",
     "axios": "^0.19.2",
+    "buffer": "^6.0.3",
     "compression": "^1.7.1",
     "express": "^4.17.1",
     "i": "^0.3.7",

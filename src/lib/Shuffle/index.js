@@ -1,6 +1,7 @@
 import Errors from '../Errors';
 import Configs from './Configs';
 import Create from './Create';
+import Fetch from './Fetch';
 import { aggregate } from '../../helpers/classes';
 
 
@@ -14,5 +15,6 @@ import { aggregate } from '../../helpers/classes';
 export default class Shuffle extends aggregate(
   Errors,
   Configs, 
-  Create
+  Create,
+  Fetch,
 ) {}

@@ -2,6 +2,8 @@ import { get } from 'svelte/store';
 import algoClient from '../algoClient';
 import { wallet } from '../../stores/wallet';
 
+
+
 export default class Create {
   //
   // Create shuffle ASA
@@ -11,8 +13,9 @@ export default class Create {
     const $wallet = get(wallet);
     if (!$wallet.currentAddress) return;
 
-    console.log(this.configs);
-
+    const configs = this.getConfigsObj();
+    console.log(configs)
+    
     const txn = await algoClient.txn({
       fee: 1000,
       flatFee: true,
@@ -25,7 +28,8 @@ export default class Create {
       assetURL: 'degenshuffles.xyz',
       assetManager: $wallet.currentAddress,
       assetReserve: $wallet.currentAddress,
-      assetDefaultFrozen: false
+      assetDefaultFrozen: false,
+      note: algoClient.encodeNote(configs)
     });
 
     return txn;

@@ -32,7 +32,7 @@
 <div class="wrapper">
   <h2 class="title">
     <i class="fas fa-check-circle"></i>
-    Your shuffle is minted!
+    Your shuffle was minted!
   </h2>
   <p>
     Asset id : {asaId}

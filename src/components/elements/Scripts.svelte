@@ -3,8 +3,10 @@
   import algoClient from '../../lib/algoClient';
   let algosdkScript;
   let myalgoScript;
+  let msgpackScript;
   let algosdkLoaded = false;
   let myalgoLoaded = false;
+  let msgpackLoaded = false;
 
   onMount(() => {
     // AlgoSDK
@@ -13,12 +15,16 @@
     // MyAlgoConnect
     if (window.MyAlgoConnect) loaded('myalgo');
     else myalgoScript.addEventListener('load', () => { loaded('myalgo') });
+    // MsgPack
+    if (window.msgpack) loaded('msgpack');
+    else msgpackScript.addEventListener('load', () => { loaded('msgpack') });
   });
 
   function loaded (scriptLoaded) {
     if (scriptLoaded === 'algosdk') algosdkLoaded = true;
     if (scriptLoaded === 'myalgo') myalgoLoaded = true;
-    if (algosdkLoaded && myalgoLoaded) {
+    if (scriptLoaded === 'msgpack') msgpackLoaded = true;
+    if (algosdkLoaded && myalgoLoaded && msgpackLoaded) {
       algoClient.init();
     }
   }
@@ -27,4 +33,5 @@
 <svelte:head>
   <script bind:this={algosdkScript} src="/scripts/algosdk.min.js" async></script>
 	<script bind:this={myalgoScript} src="/scripts/myalgo.min.js" async></script>
+	<script bind:this={msgpackScript} src="/scripts/msgpack.min.js" async></script>
 </svelte:head>

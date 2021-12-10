@@ -20,12 +20,13 @@
     loading.set(true);
     shuffle.validateConfigs(omit($formData, ['errors']));
     formData.set({ ...shuffle.configs, errors: shuffle.errors }) 
-    if (shuffle.hasError) { 
+    if (shuffle.hasErrors) { 
       loading.set(false);
       return;
     }
 
     const txn = await shuffle.create();
+    console.log(txn);
     if (txn['asset-index']) {
       popup.set({
         component: AssetCreated, 
