@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { navBarHeight } from '../stores/ui';
-	import Nav from '../components/blocks/Nav.svelte';
+	import Nav from '../components/layout/Nav.svelte';
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 	import Scripts from '../components/elements/Scripts.svelte';
 	import Popup from '../components/popups/Popup.svelte';

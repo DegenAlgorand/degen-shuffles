@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import { stores } from '@sapper/app';
-  import { wallet } from '../stores/wallet';
   import { loading } from '../stores/ui';
   
   import Shuffle from '../lib/Shuffle';
-  import Banner from '../components/blocks/Banner.svelte';
-  import ShuffleMetas from '../components/blocks/ShuffleMetas.svelte';
+  import Banner from '../components/layout/Banner.svelte';
+  import ShuffleToolbar from '../components/shuffle/ShuffleToolbar.svelte';
+  import ShuffleMetas from '../components/shuffle/ShuffleMetas.svelte';
   import NotFound from './_error.svelte';
   
   let shuffle;
@@ -60,16 +60,17 @@
 {:else}
   {#if loaded}
     {#key shuffleId}
+      <ShuffleToolbar {shuffle} />
+      
       <Banner>
         <h1 class="page-title">
           {shuffle.configs.assetName}
         </h1>
       </Banner>
 
+      <ShuffleMetas {shuffle} />
+      
       <div class="container">
-
-        <ShuffleMetas {shuffle} />
-
         {#if shuffle.configs.description}
           <p>{shuffle.configs.description}</p>
         {/if}

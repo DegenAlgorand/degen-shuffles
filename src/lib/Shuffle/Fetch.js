@@ -21,6 +21,7 @@ export default class Fetch {
     
     configsOk = this.setConfigs({
       assetId: asset.index,
+      assetName: asset.params.name,
       creatorAddress: asset.params.creator,
     });
     if (!configsOk) return false;

@@ -21,7 +21,6 @@
     if (!assets || !assets.length) return;
     const walletAssetsIds = assets.map( asset => asset['asset-id']);
     $wallet.shuffles = $shuffles.filter(asset => walletAssetsIds.includes(asset.assetId));
-    console.log($wallet.shuffles);
   }
 
 

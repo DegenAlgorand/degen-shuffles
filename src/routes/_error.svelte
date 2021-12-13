@@ -1,5 +1,5 @@
 <script>
-	import Banner from '../components/blocks/Banner.svelte';
+	import Banner from '../components/layout/Banner.svelte';
 	export let status;
 	export let error = {};
 	const dev = process.env.NODE_ENV === 'development';

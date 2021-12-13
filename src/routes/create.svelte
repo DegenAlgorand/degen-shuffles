@@ -6,7 +6,7 @@
   import { loading, popup } from '../stores/ui';
   import { shortenAddress } from '../helpers/address';
   import Shuffle from '../lib/Shuffle';
-  import Banner from '../components/blocks/Banner.svelte';
+  import Banner from '../components/layout/Banner.svelte';
   import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte';
   import AssetCreated from '../components/popups/AssetCreated.svelte';
 

@@ -21,7 +21,7 @@
 
 <form on:submit>
   <TextField
-    label="Shuffle Asset name"
+    label="Shuffle Name"
     info="Cannot be modified later. 32 characters max."
     name="assetName"
   />

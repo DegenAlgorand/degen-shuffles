@@ -1,5 +1,5 @@
 <script>
-  import Banner from '../components/blocks/Banner.svelte';
+  import Banner from '../components/layout/Banner.svelte';
 </script>
 
 <style lang="scss">
