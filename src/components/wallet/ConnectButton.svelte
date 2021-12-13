@@ -18,7 +18,7 @@
   Connect your wallet
 </h2>
 
-<button class="btn" on:click={algoClient.connect}>
+<button class="btn" on:click={() => algoClient.connect() }>
   <img src="/images/myalgo-logo.png" alt="MyAlgo Wallet">
 </button>
  

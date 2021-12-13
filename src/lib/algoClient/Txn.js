@@ -17,7 +17,7 @@ export default class Txn {
       loading.set('Sending transaction...');
       const response = await this.sendTxn(signedTxn);
       loading.set('Waiting for confirmation...');
-      const confirmation = await this.wait(this.algoSdk, response.txId, 10);
+      const confirmation = await this.wait(this.algod, response.txId, 10);
       return confirmation;
     }
     catch (error) {
@@ -30,7 +30,7 @@ export default class Txn {
   // Get txn params
   // ----------------------------------------------
   async getTxnParams () {
-    const txn = await this.algoSdk.getTransactionParams().do();
+    const txn = await this.algod.getTransactionParams().do();
     return txn;
   }
 
@@ -38,7 +38,7 @@ export default class Txn {
   // Send transaction
   // ----------------------------------------------
   async sendTxn (signedTxn) {
-    const txn = await this.algoSdk.sendRawTransaction(signedTxn.blob).do();
+    const txn = await this.algod.sendRawTransaction(signedTxn.blob).do();
     return txn;
   }
 

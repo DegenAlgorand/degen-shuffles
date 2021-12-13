@@ -5,7 +5,7 @@ export default class Notes {
   // Encode
   // ----------------------------------------------
   encodeNote(str) {
-    return this.msgpack.encode(str);
+    return this.algosdk.encodeObj(str);
   }
 
   //
@@ -13,7 +13,7 @@ export default class Notes {
   // ----------------------------------------------
   decodeNote(str) {
     const buffer = Buffer.from(str, 'base64');
-    return this.msgpack.decode(buffer);
+    return this.algosdk.decodeObj(buffer);
   }
 
 }

@@ -1,11 +1,6 @@
 import { wallet } from '../../stores/wallet';
 
 export default class Connect {
-  constructor () {
-    this.connect = this.connect.bind(this);
-    this.disconnect = this.disconnect.bind(this);
-  }
-
   //
   // Connect wallet
   // ----------------------------------------------
