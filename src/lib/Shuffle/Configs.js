@@ -43,6 +43,7 @@ export default class Configs {
       ...this.configs,
       ...newConfigs,
     }
+
     // ASA name
     if (!configs.assetName || typeof configs.assetName !== 'string') {
       this.addError({
@@ -64,9 +65,20 @@ export default class Configs {
       this.addError({
         code: 'TOO_LONG',
         key: 'displayName', 
-        message: 'The maximum length for  dispaly name is 64 characters',
+        message: 'The maximum length for dispaly name is 64 characters',
       });
     }
+
+    // Description
+    if (configs.description) {
+      if(configs.description.length > 200) {
+        this.addError({
+          code: 'TOO_LONG',
+          key: 'description', 
+          message: 'The maximum length for description is 200 characters',
+        });
+      }
+    } 
 
     if (!this.hasErrors) {
       this.configs = configs;

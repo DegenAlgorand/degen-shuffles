@@ -50,7 +50,9 @@
     </Banner>
 
     <div class="container">
-      
+      {#if shuffle.configs.description}
+        <p>{shuffle.configs.description}</p>
+      {/if}
     </div>
   {/if}
 {/if}

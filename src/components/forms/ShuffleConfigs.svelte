@@ -1,5 +1,6 @@
 <script>
   import TextField from './fields/TextField.svelte';
+  import TextareaField from './fields/TextareaField.svelte';
 </script>
 
 <style lang="scss">
@@ -29,6 +30,13 @@
     label="Display name"
     info="Can be edited later if needed. 64 characters max."
     name="displayName"
+  />
+
+  <TextareaField
+    label="Description"
+    info="Tell us about the shuffle. 200 characters max."
+    name="description"
+    rows="4"
   />
   
   <div class="actions">

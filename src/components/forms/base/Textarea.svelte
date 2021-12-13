@@ -30,11 +30,11 @@
 
 </script>
 
-<input
+<textarea
   id={name}
   name={name}
   type="text" 
-  class="input text-input" 
+  class="input textarea-input" 
   bind:value
   on:blur={clean}
   {...$$restProps}
