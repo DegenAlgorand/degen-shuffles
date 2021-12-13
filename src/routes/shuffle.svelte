@@ -9,7 +9,7 @@
   import ShuffleMetas from '../components/blocks/ShuffleMetas.svelte';
   import NotFound from './_error.svelte';
   
-  const shuffle = new Shuffle();
+  let shuffle;
   const { page } = stores();
   let notFound = false;
   let loaded = false;
@@ -30,6 +30,7 @@
       return;
     }
     loading.set('Loading shuffle data...');
+    shuffle = new Shuffle();
     const fetchSuccess = await shuffle.fetch($page.query.id);
     if (!fetchSuccess) {
       notFound = true;
@@ -61,7 +62,7 @@
     {#key shuffleId}
       <Banner>
         <h1 class="page-title">
-          {shuffle.configs.displayName || shuffle.configs.assetName}
+          {shuffle.configs.assetName}
         </h1>
       </Banner>
 

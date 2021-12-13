@@ -48,8 +48,8 @@
 .dark-btn {
   @extend %btn;
   color: $white;
-  background: $medium-blue;
-  border: 1px solid $medium-blue;
+  background: $dark-blue;
+  border: 1px solid $dark-blue;
   &:hover {
     color: $white;
     background: $red;

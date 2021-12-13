@@ -46,15 +46,23 @@
 </script>
 
 <style lang="scss">
+  @import '../../styles/variables';
   ul {
     margin-bottom: 2em;
   }
   li {
     display: block;
-    margin-bottom: 1em;
+    padding: 1em 0;
+    border-bottom: 1px solid $border-color;
+    &:first-child {
+      border-top: 1px solid $border-color;
+    }
   }
-  .btn {
-    width: 100%;
+  .text-link {
+    .asset-id {
+      font-size: 0.75em;
+      margin-left: 0.25em;
+    }
   }
 </style>
 
@@ -67,8 +75,9 @@
     <ul>
       {#each $wallet.shuffles as shuffle}
         <li>
-          <a class="ghost-btn" href="/shuffle?id={shuffle.assetId}">
-            {shuffle.assetId}
+          <a class="text-link" href="/shuffle?id={shuffle.assetId}">
+            <span class="name">{shuffle.assetName}</span>
+            <span class="asset-id">({shuffle.assetId})</span>
           </a>
         </li>
       {/each}

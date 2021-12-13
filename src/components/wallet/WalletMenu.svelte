@@ -24,8 +24,13 @@
     height: 100%;
     z-index: 10;
     width: var(--wallet-menu-width);
-    padding: var(--container-padding);
+    padding: var(--container-padding) 0 0;
     background: $medium-blue;
+    overflow: hidden;
+  }
+  .wrapper {
+    padding: 0 var(--container-padding) var(--container-padding);
+    height: 100%;
     overflow: auto;
   }
   .overlay {
@@ -40,21 +45,22 @@
   }
 </style>
 
-
 {#if $showWalletMenu}
   <nav 
     class="wallet-menu"
     style={`padding-top: ${$navBarHeight}px;`}
     transition:fly|local={{x: 100, duration: 300, easing: quintOut }}
   >
-    {#if !$wallet.currentAddress}
-      <ConnectButton />
-    {:else}
-      <SelectAddress />
-      <ShufflesList />
-
-      <DisconnectButton />
-    {/if}
+    <div class="wrapper">
+      {#if !$wallet.currentAddress}
+        <ConnectButton />
+      {:else}
+        <SelectAddress />
+        <ShufflesList />
+  
+        <DisconnectButton />
+      {/if}
+    </div>
   </nav>
 
 

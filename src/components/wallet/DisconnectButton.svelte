@@ -10,7 +10,7 @@
   }
 </style>
 
-<button class="ghost-btn" on:click={() => algoClient.disconnect() }>
-  Disconnect
+<button class="dark-btn" on:click={() => algoClient.disconnect() }>
+  Log out
 </button>
  

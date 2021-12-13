@@ -1,0 +1,25 @@
+@import '../variables';
+@import '../mixins';
+
+
+* {
+  scrollbar-width: thin; 
+  scrollbar-color: $red $dark-blue;
+}
+
+*::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 0.25rem
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $red;
+  border-radius: 1rem;
+  border: 0.25rem solid rgba($red, 0);
+  box-sizing: border-box;
+  background-clip: content-box;
+}

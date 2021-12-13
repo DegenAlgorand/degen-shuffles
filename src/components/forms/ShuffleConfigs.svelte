@@ -26,12 +26,6 @@
     name="assetName"
   />
 
-  <TextField
-    label="Display name"
-    info="Can be edited later if needed. 64 characters max."
-    name="displayName"
-  />
-
   <TextareaField
     label="Description"
     info="Tell us about the shuffle. 200 characters max."

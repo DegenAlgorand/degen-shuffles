@@ -4,7 +4,6 @@ const defaultConfigs = {
   assetId: undefined,
   assetName: '$DEGEN Shuffle',
   creatorAddress: undefined,
-  displayName: 'My Shuffle',
   description: undefined,
 }
 
@@ -68,15 +67,6 @@ export default class Configs {
         code: 'TOO_LONG',
         key: 'assetName', 
         message: 'The maximum length for an ASA name is 32 characters',
-      });
-    }
-
-    // Display name
-    if (configs.displayName && configs.displayName.length > 64) {
-      this.addError({
-        code: 'TOO_LONG',
-        key: 'displayName', 
-        message: 'The maximum length for dispaly name is 64 characters',
       });
     }
 
