@@ -17,7 +17,7 @@ export default class Txn {
       loading.set('Sending transaction...');
       const response = await this.sendTxn(signedTxn);
       loading.set('Waiting for confirmation...');
-      const confirmation = await this.wait(this.algod, response.txId, 10);
+      const confirmation = await this.wait(response.txId);
       return confirmation;
     }
     catch (error) {
@@ -42,6 +42,7 @@ export default class Txn {
     return txn;
   }
 
+  //
   // Sign
   // ----------------------------------------------
   async signTxn (txn) {
@@ -49,5 +50,12 @@ export default class Txn {
     return signedTxn;
   } 
 
-  
+  //
+  // Wait for txn to be processed 
+  // ----------------------------------------------
+  async wait (txnId, maxBlocks = 10) {
+    const confirmation = await this.algosdk.waitForConfirmation(this.algod, txnId, maxBlocks);
+    return confirmation;
+  }
+
 }

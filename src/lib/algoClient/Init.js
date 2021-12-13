@@ -12,8 +12,7 @@ export default class Init {
     if (!window || !window.algosdk) return;
     this.myAlgo = new window.MyAlgoConnect();
     this.algosdk = window.algosdk;
-    this.algod = new this.algosdk.Algodv2('', this.apiUrl, '');
-    this.wait = this.algosdk.waitForConfirmation;   
+    this.algod = new this.algosdk.Algodv2('', this.apiUrl, '');  
   }
 }
 
