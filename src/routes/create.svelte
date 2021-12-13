@@ -1,5 +1,5 @@
 <script>
-  import { setContext } from 'svelte';
+  import { setContext, tick } from 'svelte';
   import { writable } from 'svelte/store';
   import { omit } from 'lodash';
   import { wallet } from '../stores/wallet';
@@ -26,7 +26,7 @@
     }
 
     const txn = await shuffle.create();
-    console.log(txn);
+    await tick();
     if (txn['asset-index']) {
       popup.set({
         component: AssetCreated, 

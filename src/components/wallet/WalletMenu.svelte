@@ -6,6 +6,7 @@
   import ConnectButton from './ConnectButton.svelte';
   import DisconnectButton from './DisconnectButton.svelte';
   import SelectAddress from './SelectAddress.svelte';
+  import ShufflesList from './ShufflesList.svelte';
 
   function closeMenu () {
     showWalletMenu.set(false);
@@ -50,6 +51,8 @@
       <ConnectButton />
     {:else}
       <SelectAddress />
+      <ShufflesList />
+
       <DisconnectButton />
     {/if}
   </nav>

@@ -12,6 +12,7 @@ export default class Notes {
   // Decode
   // ----------------------------------------------
   decodeNote(str) {
+    if (!str) return;
     const buffer = Buffer.from(str, 'base64');
     return this.algosdk.decodeObj(buffer);
   }

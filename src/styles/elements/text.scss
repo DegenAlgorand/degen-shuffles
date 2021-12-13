@@ -96,3 +96,12 @@ ul.list {
     }
   }
 }
+
+.text-link {
+  color: $white;
+  display: inline-block;
+  &:hover {
+    color: $red;
+    text-decoration: underline;
+  }
+}

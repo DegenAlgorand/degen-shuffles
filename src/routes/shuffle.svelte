@@ -3,30 +3,45 @@
   import { stores } from '@sapper/app';
   import { wallet } from '../stores/wallet';
   import { loading } from '../stores/ui';
-  import { shortenAddress } from '../helpers/address';
+  
   import Shuffle from '../lib/Shuffle';
   import Banner from '../components/blocks/Banner.svelte';
+  import ShuffleMetas from '../components/blocks/ShuffleMetas.svelte';
   import NotFound from './_error.svelte';
   
   const shuffle = new Shuffle();
   const { page } = stores();
-  const { query } = $page;
   let notFound = false;
   let loaded = false;
+  let mounted = false;
+  let shuffleId = undefined;
 
-  onMount(async () => {
-    if (!query || !query.id) {
+  $: $page.query, fetchShuffle();
+  onMount(() => {
+    mounted = true;
+    fetchShuffle();
+  })
+  
+
+  async function fetchShuffle() {
+    if (!mounted) return;
+    if (!$page.query || !$page.query.id) {
       notFound = true;
       return;
     }
     loading.set('Loading shuffle data...');
-    const fetchSuccess = await shuffle.fetch(query.id);
+    const fetchSuccess = await shuffle.fetch($page.query.id);
     if (!fetchSuccess) {
       notFound = true;
     }
+    console.log(shuffle);
+    shuffleId = shuffle.configs.assetId;
     loaded = true;
     loading.set(false);
-  });
+  }
+
+
+
 
 
 
@@ -37,22 +52,27 @@
  
 </style>
 
+
 {#if notFound}
   <NotFound status="Shuffle not found" />
 
 {:else}
-
   {#if loaded}
-    <Banner>
-      <h1 class="page-title">
-        {shuffle.configs.displayName || shuffle.configs.assetName}
-      </h1>
-    </Banner>
+    {#key shuffleId}
+      <Banner>
+        <h1 class="page-title">
+          {shuffle.configs.displayName || shuffle.configs.assetName}
+        </h1>
+      </Banner>
 
-    <div class="container">
-      {#if shuffle.configs.description}
-        <p>{shuffle.configs.description}</p>
-      {/if}
-    </div>
+      <div class="container">
+
+        <ShuffleMetas {shuffle} />
+
+        {#if shuffle.configs.description}
+          <p>{shuffle.configs.description}</p>
+        {/if}
+      </div>
+    {/key}
   {/if}
 {/if}

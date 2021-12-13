@@ -59,11 +59,3 @@
 }
 
 
-.text-link {
-  @extend %btn;
-  color: $white;
-  display: inline-block;
-  &:hover {
-    color: $red;
-  }
-}

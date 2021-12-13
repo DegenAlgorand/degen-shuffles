@@ -10,6 +10,7 @@ export default class Fetch {
   // ----------------------------------------------
   async fetch (asaId) {
     if (!asaId) return;
+    this.resetConfigs();
     let configsOk = true;
     const assetResponse = await algoClient.lookupAssetByID(asaId);
     if (!assetResponse || !assetResponse.asset) return false;

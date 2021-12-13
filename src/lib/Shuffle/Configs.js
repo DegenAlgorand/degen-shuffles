@@ -1,15 +1,25 @@
 import { omit, omitBy, isNil } from 'lodash';
 import algoClient from '../algoClient';
+const defaultConfigs = {
+  assetId: undefined,
+  assetName: '$DEGEN Shuffle',
+  creatorAddress: undefined,
+  displayName: 'My Shuffle',
+  description: undefined,
+}
+
 
 export default class Configs {
-  constructor () {
-    this.configs = {
-      assetId: undefined,
-      assetName: '$DEGEN Shuffle',
-      creatorAddress: undefined,
-      displayName: 'My Shuffle',
-      description: undefined,
-    };
+  constructor () { 
+    this.configs = defaultConfigs;
+  }
+ 
+  //
+  // Reset configs
+  // ----------------------------------------------
+  resetConfigs () {
+    this.clearErrors();
+    this.configs = defaultConfigs;
   }
 
   //
@@ -19,6 +29,7 @@ export default class Configs {
     this.clearErrors();
     return this.validateConfigs(newConfigs);
   }
+  
 
   //
   // Get config object
