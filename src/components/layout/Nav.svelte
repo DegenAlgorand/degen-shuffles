@@ -22,11 +22,11 @@
   }
   .logo {
     font-size: 1.5rem;
-    font-family: $title-font;
+    font-family: var(--title-font);
     vertical-align: middle;
     margin: 0;
     a {
-      color: $white;
+      color: var(--white);
       text-decoration: none;
       &:hover {
         text-decoration: none;

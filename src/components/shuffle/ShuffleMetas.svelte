@@ -5,12 +5,11 @@
 </script>
 
 <style lang="scss">
-  @import '../../styles/variables';
   .meta {
     margin: 0 0 2em;
     padding: 1em 0;
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid vaR(--border-color);
+    border-bottom: 1px solid vaR(--border-color);
   }
 </style>
 

@@ -11,11 +11,11 @@
 <style lang="scss">
   @import '../../styles/variables';
   .wrapper {
-    color: $medium-blue;
+    color: var(--medium-blue);
     text-align: center;
   }
   .title {
-    color: $medium-blue;
+    color: var(--medium-blue);
     margin: 0;
     font-size: clamp(1.25rem, 4vw, 1.5rem);
     line-height: 1.2;

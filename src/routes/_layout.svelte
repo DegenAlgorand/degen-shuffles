@@ -5,7 +5,7 @@
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 	import Scripts from '../components/elements/Scripts.svelte';
 	import Popup from '../components/popups/Popup.svelte';
-	import LoadingAnim from '../components/elements/LoadingAnim.svelte';
+	import Loading from '../components/elements/LoadingFullscreen.svelte';
 </script>
 
 <style lang="scss" global>
@@ -30,7 +30,7 @@
 </main>
 
 <Popup />
-<LoadingAnim />
+<Loading />
 <Scripts />
 
 

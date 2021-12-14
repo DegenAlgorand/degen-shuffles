@@ -7,3 +7,22 @@ $breakpoint-sm: 560px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
+
+
+@mixin sizes-cssvars {
+  :root {
+    --container-width: 100%;
+    --container-padding: 1.5rem;
+    --wallet-menu-width: 80%;
+    @include small-screen {
+      --container-width: 90%;
+      --container-padding: 2rem;
+      --wallet-menu-width: 24rem;
+  
+    }
+    @include medium-screen {
+      --container-width: 80%;
+      --container-padding: 2rem;
+    }
+  }
+}

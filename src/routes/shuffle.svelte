@@ -31,7 +31,7 @@
     }
     loading.set('Loading shuffle data...');
     shuffle = new Shuffle();
-    const fetchSuccess = await shuffle.fetch($page.query.id);
+    const fetchSuccess = await shuffle.load($page.query.id);
     if (!fetchSuccess) {
       notFound = true;
     }
@@ -69,7 +69,7 @@
       </Banner>
 
       <ShuffleMetas {shuffle} />
-      
+
       <div class="container">
         {#if shuffle.configs.description}
           <p>{shuffle.configs.description}</p>

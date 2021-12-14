@@ -4,7 +4,7 @@
 
 * {
   scrollbar-width: thin; 
-  scrollbar-color: $red $dark-blue;
+  scrollbar-color: var(--red) var(--dark-blue);
 }
 
 *::-webkit-scrollbar {
@@ -17,7 +17,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $red;
+  background-color: var(--red);
   border-radius: 1rem;
   border: 0.25rem solid rgba($red, 0);
   box-sizing: border-box;

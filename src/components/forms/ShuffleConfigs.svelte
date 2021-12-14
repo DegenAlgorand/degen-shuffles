@@ -9,7 +9,7 @@
     margin: 2em 0;
     border-radius: 1rem;
     padding: var(--container-padding);
-    background: $medium-blue;
+    background: var(--medium-blue);
     box-shadow: 0 0 3rem -2rem rgba($red, 0.2),
                 0 0 10rem -2rem rgba($red, 0.6);
     :global(.field) {

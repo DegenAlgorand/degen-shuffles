@@ -28,17 +28,6 @@
     align-items: center;
     justify-content: center; 
     padding: var(--container-padding);
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1;
-      height: 100%;
-      background: var(--darker);
-      opacity: 0.88;
-    }
   }
   .popup-content {
     margin: auto;

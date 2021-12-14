@@ -6,9 +6,9 @@ import { omit } from 'lodash';
 
 export default class Fetch {
   //
-  // Fetch Shuffle ASA + Configs
+  // Load Shuffle ASA + Configs
   // ----------------------------------------------
-  async fetch (asaId) {
+  async load (asaId) {
     if (!asaId) return;
     this.resetConfigs();
     let configsOk = true;

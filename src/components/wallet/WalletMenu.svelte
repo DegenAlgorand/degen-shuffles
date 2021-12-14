@@ -16,7 +16,6 @@
 
 <style lang="scss">
   @import '../../styles/variables';
-  @import '../../styles/mixins';
   .wallet-menu {
     position: fixed;
     top: 0;
@@ -25,7 +24,7 @@
     z-index: 10;
     width: var(--wallet-menu-width);
     padding: var(--container-padding) 0 0;
-    background: $medium-blue;
+    background: var(--medium-blue);
     overflow: hidden;
   }
   .wrapper {

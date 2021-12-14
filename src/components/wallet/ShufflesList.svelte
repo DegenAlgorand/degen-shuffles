@@ -45,16 +45,15 @@
 </script>
 
 <style lang="scss">
-  @import '../../styles/variables';
   ul {
     margin-bottom: 2em;
   }
   li {
     display: block;
     padding: 1em 0;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
     &:first-child {
-      border-top: 1px solid $border-color;
+      border-top: 1px solid var(--border-color);
     }
   }
   .text-link {

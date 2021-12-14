@@ -19,7 +19,7 @@
 <style lang="scss">
   @import '../../../styles/variables';
   .error-message {
-    color: $red;
+    color: var(--red);
     margin-top: 0.5em;
   }
 </style>

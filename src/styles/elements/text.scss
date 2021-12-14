@@ -3,16 +3,16 @@
 
 
 body {
-  font-family: $text-font;
-  color: $text-color;
+  font-family: var(--text-font);
+  color: var(--text-color);
 }
 
 //
 // Titles
 // ----------------------------------------------
 %title {
-  color: $title-color;
-  font-family: $title-font;
+  color: var(--title-color);
+  font-family: var(--title-font);
 }
 
 .banner-title {
@@ -24,8 +24,8 @@ body {
   text-transform: uppercase;
 }
 .banner-subtitle {
-  color: $title-color;
-  font-family: $text-font;
+  color: var(--title-color);
+  font-family: var(--text-font);
   font-size: clamp(1.25rem, 4vw, 1.5rem);
   text-align: center;
 }
@@ -38,7 +38,7 @@ body {
   .subtitle {
     font-size: 0.325em;
     font-style: italic;
-    font-family: $text-font;
+    font-family: var(--text-font);
     display: block;
   }
 }
@@ -89,7 +89,7 @@ ul.list {
       position: absolute;
       top: 0.5em;
       left: 0.25em;
-      background: $red;
+      background: var(--red);
       border-radius: 0.5em;
       width: 0.5em;
       height: 0.5em;
@@ -98,10 +98,10 @@ ul.list {
 }
 
 .text-link {
-  color: $white;
+  color: var(--white);
   display: inline-block;
   &:hover {
-    color: $red;
+    color: var(--red);
     text-decoration: underline;
   }
 }

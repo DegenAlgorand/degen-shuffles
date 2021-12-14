@@ -3,3 +3,11 @@
 // ----------------------------------------------
 $title-font: 'Oxanium', sans-serif;; 
 $text-font: 'DM Sans', sans-serif;; 
+
+
+@mixin fonts-cssvars {
+  :root {
+    --title-font: #{$title-font};
+    --text-font: #{$text-font};
+  }
+}

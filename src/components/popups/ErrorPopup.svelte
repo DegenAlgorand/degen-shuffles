@@ -3,9 +3,8 @@
 </script>
 
 <style lang="scss">
-  @import '../../styles/variables';
   .title {
-    color: $red;
+    color: var(--red);
     margin: 0;
     font-size: clamp(1.25rem, 4vw, 1.5rem);
     line-height: 1.2;
