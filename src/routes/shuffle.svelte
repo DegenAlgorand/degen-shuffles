@@ -35,7 +35,6 @@
     if (!fetchSuccess) {
       notFound = true;
     }
-    console.log(shuffle);
     shuffleId = shuffle.configs.assetId;
     loaded = true;
     loading.set(false);

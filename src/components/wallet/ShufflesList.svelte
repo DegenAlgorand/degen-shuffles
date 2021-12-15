@@ -3,14 +3,17 @@
   import { wallet } from '../../stores/wallet';
   import { shuffles } from '../../stores/shuffles';
   import algoClient from '../../lib/algoClient';
+  import Loading from '../elements/LoadingInline.svelte';
   import { SHUFFLE_UNIT } from '../../vars';
 
+  let loading = false;
   let prevAddress = '';
   $: $wallet.currentAddress, $shuffles, getAccountShuffles();
 
 
   async function getAccountShuffles() {
     if (prevAddress === $wallet.currentAddress) return;
+    loading = true;
     prevAddress = $wallet.currentAddress;
     if ($shuffles === undefined) await getAllShuffles();
     await tick();
@@ -21,9 +24,11 @@
     if (!assets || !assets.length) return;
     const walletAssetsIds = assets.map( asset => asset['asset-id']);
     $wallet.shuffles = $shuffles.filter(asset => walletAssetsIds.includes(asset.assetId));
+    loading = false;
   }
 
-
+  // Fetcha all shuffles
+  // TODO: move to a seperate file
   async function getAllShuffles() {
     const response = await algoClient.searchForAssets({
 			unit: SHUFFLE_UNIT,
@@ -65,20 +70,26 @@
 </style>
 
 {#if $wallet.currentAddress }
-  {#if $wallet.shuffles && $wallet.shuffles.length}
-    <h2 class="menu-title">
-      Your shuffles
-    </h2>
 
-    <ul>
-      {#each $wallet.shuffles as shuffle}
-        <li>
-          <a class="text-link" href="/shuffle?id={shuffle.assetId}">
-            <span class="name">{shuffle.assetName}</span>
-            <span class="asset-id">({shuffle.assetId})</span>
-          </a>
-        </li>
-      {/each}
-    </ul>
+  {#if loading}
+    <Loading />
+  {:else}
+    {#if $wallet.shuffles && $wallet.shuffles.length}
+      <h2 class="menu-title">
+        Your shuffles
+      </h2>
+
+      <ul>
+        {#each $wallet.shuffles as shuffle}
+          <li>
+            <a class="text-link" href="/shuffle?id={shuffle.assetId}">
+              <span class="name">{shuffle.assetName}</span>
+              <span class="asset-id">({shuffle.assetId})</span>
+            </a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
   {/if}
+
 {/if}

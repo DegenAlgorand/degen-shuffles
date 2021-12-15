@@ -15,8 +15,8 @@ body {
 
 .container {
   margin: 0 auto;
-  width: var(--container-width);
-  max-width: 52rem;
+  width: 100%;
+  max-width: var(--container-width);
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }

@@ -18,10 +18,9 @@ $breakpoint-xl: 1280px;
       --container-width: 90%;
       --container-padding: 2rem;
       --wallet-menu-width: 24rem;
-  
     }
     @include medium-screen {
-      --container-width: 80%;
+      --container-width: 52rem;
       --container-padding: 2rem;
     }
   }

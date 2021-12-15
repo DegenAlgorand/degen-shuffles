@@ -1,14 +1,19 @@
 <script>
+  import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { popup } from '../../stores/ui';
+  import popup from '../../lib/popup';
   export let onClose;
   
+  
+  $: console.log($popup);
+
+
   function close() {
     if (typeof onClose === 'function') onClose();
-    popup.set(null);
+    popup.close();
   }
   function handleKeydown(event) {
-    if($popup && event.keyCode === 27) close();
+    if(popup.isActive && event.keyCode === 27) close();
 	}
 </script>
 
@@ -31,13 +36,11 @@
   }
   .popup-content {
     margin: auto;
-    background: #fff;
+    width: 100%;
     max-width: var(--container-width);
-    padding: var(--container-padding);
+    padding: calc(var(--container-padding)*2);
     position: relative;
-    overflow: hidden;
     z-index: 2;
-    border-radius: 0.5rem;
   }
   .overlay {
     position: fixed;
@@ -53,20 +56,21 @@
 
 <svelte:window on:keydown={handleKeydown}/>
 
-{#if $popup }
-  <section 
-    class="popup" 
-    transition:fade="{{ duration: 200 }}" 
-    on:click|self={close}
-  >
-    <div class="popup-content" role="dialog">
-      <svelte:component 
-        this={$popup.component} 
-        {...$popup.props}
-        on:close={close}
-      />   
-    </div>
+{#if $popup && $popup.length}
+  {#each $popup as popup}
+    <section 
+      class="popup" 
+      transition:fade="{{ duration: 200 }}" 
+    >
+      <div class="popup-content" role="dialog">
+        <svelte:component 
+          this={popup.component} 
+          {...popup.props}
+          on:close={close}
+        />   
+      </div>
 
-    <div class="overlay"></div>
-  </section>
+      <div class="overlay" on:click|self={close} />
+    </section>
+  {/each}
 {/if}

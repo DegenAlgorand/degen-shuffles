@@ -2,6 +2,8 @@
   import { shortenAddress } from '../../helpers/address';
   export let shuffle = {};
   const configs = shuffle.configs;
+
+  
 </script>
 
 <style lang="scss">

@@ -72,11 +72,11 @@ export default class Configs {
 
     // Description
     if (configs.description) {
-      if(configs.description.length > 200) {
+      if(configs.description.length > 300) {
         this.addError({
           code: 'TOO_LONG',
           key: 'description', 
-          message: 'The maximum length for description is 200 characters',
+          message: 'The maximum length for description is 300 characters',
         });
       }
     } 

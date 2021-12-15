@@ -13,6 +13,9 @@
   .wrapper {
     color: var(--medium-blue);
     text-align: center;
+    padding: var(--container-padding);
+    background: #fff;
+    border-radius: 0.5rem;
   }
   .title {
     color: var(--medium-blue);

@@ -15,8 +15,3 @@ export const showWalletMenu = writable(false);
 // App Loading state 
 // ----------------------------------------------
 export const loading = writable(false);
-
-//
-// Popup state/component
-// ----------------------------------------------
-export const popup = writable(null)

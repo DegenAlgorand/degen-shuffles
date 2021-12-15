@@ -3,6 +3,11 @@
 </script>
 
 <style lang="scss">
+  .wrapper {
+    background: #fff;
+    padding: var(--container-padding);
+    border-radius: 0.5rem;
+  }
   .title {
     color: var(--red);
     margin: 0;

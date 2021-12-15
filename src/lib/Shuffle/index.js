@@ -1,6 +1,7 @@
 import Errors from '../Errors';
 import Configs from './Configs';
 import Create from './Create';
+import Update from './Update';
 import Load from './Load';
 import { aggregate } from '../../helpers/classes';
 
@@ -16,5 +17,6 @@ export default class Shuffle extends aggregate(
   Errors,
   Configs, 
   Create,
+  Update,
   Load,
 ) {}

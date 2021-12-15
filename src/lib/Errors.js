@@ -1,4 +1,5 @@
-import { popup, loading } from '../stores/ui'; 
+import { loading } from '../stores/ui'; 
+import popup from '../lib/popup';
 import ErrorPopup from '../components/popups/ErrorPopup.svelte'; 
 
 export default class Errors {
@@ -7,7 +8,7 @@ export default class Errors {
   }
   popError(message) {
     loading.set(false);
-    popup.set({component: ErrorPopup, props: {message}});
+    popup.open(ErrorPopup, { message } );
   }
   addError(error = {code, message, key}) {
     this.errors.push(error);

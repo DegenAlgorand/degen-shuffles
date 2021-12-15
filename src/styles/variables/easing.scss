@@ -1,0 +1,9 @@
+
+$ease: cubic-bezier(.88,0,.33,1);
+
+
+@mixin easing-cssvars {
+  :root{
+    --ease: #{$ease};
+  }
+}
