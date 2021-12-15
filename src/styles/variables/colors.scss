@@ -3,27 +3,37 @@
 // ----------------------------------------------
 $white: #fff;
 $red: #ff3864;
-$dark-blue: #15202b;
+$dark-red: #c92347;
+$purple: #743ad5;
+$light-blue: #728ca7;
 $medium-blue: #1b3a52;
+$dark-blue: #15202b;
 
 $text-color: $white;
 $title-color: $white;
 
 $bg-color: $dark-blue;
 $border-color: #2f455d;
+$input-bg: #1d2c3c;
 
 
 @mixin colors-cssvars {
   :root {
     --white: #{$white};
     --red: #{$red};
-    --dark-blue: #{$dark-blue};
+    --dark-red: #{$dark-red};
+    --purple: #{$purple};
+    --light-blue: #{$light-blue};
     --medium-blue: #{$medium-blue};
+    --dark-blue: #{$dark-blue};
 
     --text-color: #{$text-color};
     --title-color: #{$title-color};
 
     --bg-color: #{$bg-color};
     --border-color: #{$border-color};
+    --input-bg: #{$input-bg};
+
+    --gradient: linear-gradient(-45deg, #{$purple}, #{$red});
   }
 }

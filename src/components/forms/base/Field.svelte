@@ -6,11 +6,12 @@
   export let label;
   export let info;
   export let value;
+  export let fieldClass;
 </script>
 
 
 
-<div class="field">
+<div class="field {fieldClass}">
   {#if label || info}
     <Label {label} {info} {name} />
   {/if}

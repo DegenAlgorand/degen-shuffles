@@ -12,7 +12,7 @@
   padding: 1em 1.5em;
   border-radius: 0.25rem;
   border: 1px solid var(--border-color);
-  background: var(--dark-blue);
+  background: var(--input-bg);
   outline: none;
   
   &:focus {
@@ -23,4 +23,67 @@
 
 .input {
   @extend %input;
+}
+
+//
+// Toggles
+// ----------------------------------------------
+.field.toggle {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0.5rem;
+  .hidden-input {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+  }
+  label {
+    order: 2;
+    cursor: pointer;
+    margin: 0;
+  }
+  .toggle-input {
+    order: 1;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right: 1rem;
+    font-size: 2em;
+    width: 2em;
+    height: 1em;
+    border-radius: 0.5em;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    transition: background-color 240ms ease,
+                border-color 240ms ease;
+    box-sizing: content-box;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0.1em;
+      left: 0.1em;
+      width: 0.8em;
+      height: 0.8em;
+      border-radius: 0.5em;
+      background: var(--light-blue);
+      transition: background-color 320ms ease,
+                  left 320ms var(--ease);
+    }
+    &.checked {
+      background: var(--red);
+      border-color: var(--dark-red);
+      &:before {
+        left: 1.1em;
+        background: var(--white);
+      }
+    }
+    
+  }
 }

@@ -7,6 +7,7 @@
   import Shuffle from '../../lib/Shuffle';
   import TextField from './fields/TextField.svelte';
   import TextareaField from './fields/TextareaField.svelte';
+  import Toggle from './fields/Toggle.svelte';
   import AssetCreated from '../popups/AssetCreated.svelte';
   export let shuffle = new Shuffle();
   export let mode = 'edit';
@@ -49,17 +50,16 @@
 <style lang="scss">
   @import '../../styles/variables';
   form {
-    margin: 2em 0;
-    border-radius: 1rem;
     padding: var(--container-padding);
-    background: var(--medium-blue);
-    box-shadow: 0 0 3rem -2rem rgba($red, 0.2),
-                0 0 10rem -2rem rgba($red, 0.6);
+    background: var(--dark-blue);
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: var(--gradient);
     :global(.field) {
       margin-bottom: 1.5em;
     }
   }
-</style>
+  </style>
 
 
 <form on:submit={submit}>
@@ -77,7 +77,19 @@
     name="description"
     rows="4"
   />
-  
+
+  <Toggle
+    label="Require Opt-In"
+    info="People must opt-in to have a chance to win."
+    name="requireOptin"
+  />
+
+  <Toggle
+    label="Decrease previous winners odds"
+    info="The odds of a wallet to be picked decrease after each win."
+    name="decreasePreviousWinners"
+  />
+
   <div class="actions">
     <button type="submit" class="btn">
       Submit

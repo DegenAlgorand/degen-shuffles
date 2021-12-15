@@ -8,18 +8,18 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 10px;
 }
 
 *::-webkit-scrollbar-track {
   background: transparent;
-  padding: 0.25rem
+  // padding: 0.125rem
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--red);
+  background: var(--gradient);
   border-radius: 1rem;
-  border: 0.25rem solid rgba($red, 0);
+  border: 4px solid rgba($red, 0);
   box-sizing: border-box;
   background-clip: content-box;
 }

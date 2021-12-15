@@ -2,7 +2,6 @@
   import { onMount, getContext } from 'svelte';
   import { get, set } from 'lodash';
   import { getError, removeError } from '../../../helpers/errors';
-  import { stripTags } from '../../../helpers/strings';
   export let name;
   export let value;
   export let defaultValue = undefined;
@@ -23,19 +22,23 @@
       removeError(name, store);
     }
   }
-  function clean() {
-    value = stripTags(value);
-    update();
+  function toggle() {
+    value = !value;
   }
 
 </script>
 
-<textarea
+
+<input
   id={name}
   name={name}
-  type="text" 
-  class="input textarea-input" 
-  bind:value
-  on:blur={clean}
+  type="checkbox" 
+  class="hidden-input" 
+  bind:checked={value}
   {...$$restProps}
+/>
+<span 
+  class="toggle-input" 
+  class:checked={value} 
+  on:click|preventDefault={toggle}
 />

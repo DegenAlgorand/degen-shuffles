@@ -1,10 +1,11 @@
 import { omit, omitBy, isNil } from 'lodash';
-import algoClient from '../algoClient';
 const defaultConfigs = {
   assetId: undefined,
   assetName: '',
   creatorAddress: undefined,
   description: undefined,
+  decreasePreviousWinners: true,
+  requireOptin: false,
 }
 
 

@@ -11,8 +11,8 @@
   $: value, update();
 
   onMount(() => {
-    if (typeof value === 'undefined') value = get($store, name);
-    if (typeof value === 'undefined') value = defaultValue;
+    if (value === undefined) value = get($store, name);
+    if (value === undefined) value = defaultValue;
     mounted = true;
   })
 

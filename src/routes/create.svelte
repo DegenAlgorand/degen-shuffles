@@ -5,6 +5,13 @@
   import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte'; 
 </script>
 
+<style lang="scss">
+  .container :global(form) {
+    margin-top: 2em;
+  } 
+</style>
+
+
 <Banner>
   <h1 class="page-title">
     New Shuffle

@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import popup from '../../lib/popup';
   export let onClose;
@@ -34,7 +33,7 @@
     margin: auto;
     width: 100%;
     max-width: var(--container-width);
-    padding: calc(var(--container-padding)*2);
+    padding: calc(var(--container-padding));
     position: relative;
     z-index: 2;
   }

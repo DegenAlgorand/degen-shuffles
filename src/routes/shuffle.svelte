@@ -21,8 +21,6 @@
     fetchShuffle();
   })
   
-  $: console.log(shuffle);
-
   async function fetchShuffle() {
     if (!mounted) return;
     if (!$page.query || !$page.query.id) {
