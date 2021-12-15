@@ -4,7 +4,7 @@ class Popup {
     this.subscribers = [];
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
-    this.updateSubscribers = this.updateSubscribers.bind(this);
+    this.dispatchUpdate = this.dispatchUpdate.bind(this);
   }
 
   /**
@@ -19,7 +19,7 @@ class Popup {
    */
   open(component, props = {}) {
     this.stack.push({ component, props });
-    this.updateSubscribers();
+    this.dispatchUpdate();
   };
 
   /**
@@ -27,11 +27,10 @@ class Popup {
    */
   close() {
     this.stack.pop();
-    this.updateSubscribers();
+    this.dispatchUpdate();
   }
 
-  
-  /****
+  /**
    * Store subscription
    * Enables this class to be used as a reactive store
    */
@@ -44,7 +43,7 @@ class Popup {
       }
     };
   }
-  updateSubscribers() {
+  dispatchUpdate() {
     if (this.subscribers.length) {
       this.subscribers.forEach( subscriber => subscriber(this.stack));
     }

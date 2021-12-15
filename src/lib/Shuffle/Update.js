@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import algoClient from '../algoClient';
 import { wallet } from '../../stores/wallet';
-import { SHUFFLE_UNIT } from '../../vars';
+import popup from '../../lib/popup';
 
 
 
@@ -15,8 +15,6 @@ export default class Update {
     if (!$wallet.currentAddress) return;
 
     const configs = this.getConfigsObj();
-    console.log(configs)
-    
     const txn = await algoClient.txn({
       assetIndex: this.configs.assetId,
       fee: 1000,

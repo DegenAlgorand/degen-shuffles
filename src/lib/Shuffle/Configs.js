@@ -2,7 +2,7 @@ import { omit, omitBy, isNil } from 'lodash';
 import algoClient from '../algoClient';
 const defaultConfigs = {
   assetId: undefined,
-  assetName: '$DEGEN Shuffle',
+  assetName: '',
   creatorAddress: undefined,
   description: undefined,
 }
@@ -28,7 +28,6 @@ export default class Configs {
     this.clearErrors();
     return this.validateConfigs(newConfigs);
   }
-  
 
   //
   // Get config object
@@ -83,6 +82,7 @@ export default class Configs {
 
     if (!this.hasErrors) {
       this.configs = configs;
+      this.dispatchUpdate();
     }
     return !this.hasErrors;
   }

@@ -39,7 +39,7 @@
     // Edit mode
     if (mode === 'edit') {
       const txn = await shuffle.update();
-      console.log(txn);
+      popup.close();
     }
 
     loading.set(false);
@@ -66,7 +66,7 @@
   {#if mode === 'create'}
     <TextField
       label="Shuffle Name"
-      info="Cannot be modified later. 32 characters max."
+      info="This is the ASA name. It cannot be modified later. 32 characters max."
       name="assetName"
     />
   {/if}

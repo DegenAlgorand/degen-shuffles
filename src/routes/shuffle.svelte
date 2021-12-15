@@ -9,12 +9,11 @@
   import ShuffleMetas from '../components/shuffle/ShuffleMetas.svelte';
   import NotFound from './_error.svelte';
   
-  let shuffle;
   const { page } = stores();
-  let notFound = false;
+  let shuffle = new Shuffle();
   let loaded = false;
   let mounted = false;
-  let shuffleId = undefined;
+  let notFound = false;
 
   $: $page.query, fetchShuffle();
   onMount(() => {
@@ -22,6 +21,7 @@
     fetchShuffle();
   })
   
+  $: console.log(shuffle);
 
   async function fetchShuffle() {
     if (!mounted) return;
@@ -31,26 +31,15 @@
     }
     loading.set('Loading shuffle data...');
     shuffle = new Shuffle();
-    const fetchSuccess = await shuffle.load($page.query.id);
-    if (!fetchSuccess) {
+    const success = await shuffle.load($page.query.id);
+    if (!success) {
       notFound = true;
     }
-    shuffleId = shuffle.configs.assetId;
     loaded = true;
     loading.set(false);
   }
-
-
-
-
-
-
 </script>
 
-
-<style lang="scss">
- 
-</style>
 
 
 {#if notFound}
@@ -58,17 +47,14 @@
 
 {:else}
   {#if loaded}
-    {#key shuffleId}
+    {#key $shuffle}
       <ShuffleToolbar {shuffle} />
-      
       <Banner>
         <h1 class="page-title">
           {shuffle.configs.assetName}
         </h1>
       </Banner>
-
       <ShuffleMetas {shuffle} />
-
       <div class="container">
         {#if shuffle.configs.description}
           <p>{shuffle.configs.description}</p>

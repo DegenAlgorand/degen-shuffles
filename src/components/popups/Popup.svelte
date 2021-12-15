@@ -3,10 +3,6 @@
   import { fade } from 'svelte/transition';
   import popup from '../../lib/popup';
   export let onClose;
-  
-  
-  $: console.log($popup);
-
 
   function close() {
     if (typeof onClose === 'function') onClose();

@@ -1,7 +1,4 @@
-import { get } from 'svelte/store';
 import algoClient from '../algoClient';
-import { wallet } from '../../stores/wallet';
-import { omit } from 'lodash';
 
 
 export default class Fetch {
@@ -36,10 +33,10 @@ export default class Fetch {
     if (!hasTransactions) return false;
     
     const transactions = configTxns.transactions.sort((a, b) => b["round-time"] - a["round-time"]);
-    const assetConfigs = algoClient.decodeNote(transactions[0].note)
+    const lastTransaction = transactions[0];
+    const assetConfigs = algoClient.decodeNote(lastTransaction.note)
     configsOk = this.setConfigs(assetConfigs);
     if (!configsOk) return false;
-
     return true;
   }
 }

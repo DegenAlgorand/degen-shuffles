@@ -3,6 +3,7 @@ import Configs from './Configs';
 import Create from './Create';
 import Update from './Update';
 import Load from './Load';
+import Subscribe from './Subscribe';
 import { aggregate } from '../../helpers/classes';
 
 
@@ -19,4 +20,5 @@ export default class Shuffle extends aggregate(
   Create,
   Update,
   Load,
+  Subscribe,
 ) {}
