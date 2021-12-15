@@ -4,8 +4,12 @@ export default class Notes {
   //
   // Encode
   // ----------------------------------------------
-  encodeNote(str) {
-    return this.algosdk.encodeObj(str);
+  encodeNote(obj) {
+    obj = {...obj};
+    Object.entries(obj).forEach(([key, value]) => {
+      if (typeof value === 'boolean') obj[key] = value.toString();
+    });
+    return this.algosdk.encodeObj(obj);
   }
 
   //
@@ -14,7 +18,12 @@ export default class Notes {
   decodeNote(str) {
     if (!str) return;
     const buffer = Buffer.from(str, 'base64');
-    return this.algosdk.decodeObj(buffer);
+    const obj = this.algosdk.decodeObj(buffer);
+    Object.entries(obj).forEach(([key, value]) => {
+      if (value === 'true') obj[key] = true;
+      else if (value === 'false') obj[key] = false;
+    });
+    return obj;
   }
 
 }
