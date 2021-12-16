@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { stores } from '@sapper/app';
   import { loading } from '../stores/ui';
+  import { urlString, twitterUrl } from '../helpers/strings';
   
   import Shuffle from '../lib/Shuffle';
   import Banner from '../components/layout/Banner.svelte';
@@ -40,6 +41,18 @@
 
 
 
+<style lang="scss">
+  .links {
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 0.5em 1em;
+    }
+  }
+</style>
+
+
+
 {#if notFound}
   <NotFound status="Shuffle not found" />
 
@@ -51,7 +64,31 @@
         <h1 class="page-title">
           {shuffle.configs.assetName}
         </h1>
+
+        {#if shuffle.configs.url || shuffle.configs.twitter }
+          <ul class="links">
+            <!-- website -->
+            {#if shuffle.configs.url}
+              <li>
+                <a class="text-link" href={urlString(shuffle.configs.url)} target="_blank">
+                  <i class="fas fa-link"></i> 
+                  {shuffle.configs.url}
+                </a>
+              </li>    
+            {/if}
+            <!-- twitter -->
+            {#if shuffle.configs.twitter}
+              <li>
+                <a class="text-link" href={twitterUrl(shuffle.configs.twitter)} target="_blank">
+                  <i class="fab fa-twitter"></i> 
+                  {shuffle.configs.twitter}
+                </a>
+              </li>    
+            {/if}
+          </ul>
+        {/if}
       </Banner>
+
       <ShuffleMetas {shuffle} />
       <div class="container">
         {#if shuffle.configs.description}
