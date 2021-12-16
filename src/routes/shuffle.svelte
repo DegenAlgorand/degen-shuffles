@@ -29,7 +29,7 @@
     }
     loading.set('Loading shuffle data...');
     shuffle = new Shuffle();
-    const success = await shuffle.load($page.query.id);
+    const success = await shuffle.read($page.query.id);
     if (!success) {
       notFound = true;
     }

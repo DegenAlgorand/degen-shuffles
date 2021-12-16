@@ -18,7 +18,6 @@
   async function submit(e) {
     e.preventDefault();
     loading.set(true);
-    console.log($formData)
     shuffle.validateConfigs(omit($formData, ['errors']));
     formData.set({ ...shuffle.configs, errors: shuffle.errors }) 
     if (shuffle.hasErrors) { 
@@ -47,6 +46,7 @@
   }
 </script>
 
+
 <style lang="scss">
   @import '../../styles/variables';
   form {
@@ -59,7 +59,7 @@
       margin-bottom: 1.5em;
     }
   }
-  </style>
+</style>
 
 
 <form on:submit={submit}>
@@ -70,6 +70,17 @@
       name="assetName"
     />
   {/if}
+
+  <div class="columns">
+    <TextField
+      label="Project URL"
+      name="url"
+    />
+    <TextField
+      label="Twitter handle"
+      name="twitter"
+    />
+  </div>
 
   <TextareaField
     label="Description"

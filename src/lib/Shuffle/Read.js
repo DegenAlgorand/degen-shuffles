@@ -1,11 +1,11 @@
 import algoClient from '../algoClient';
 
 
-export default class Fetch {
+export default class Read {
   //
-  // Load Shuffle ASA + Configs
+  // Get Shuffle ASA + Configs
   // ----------------------------------------------
-  async load (asaId) {
+  async read (asaId) {
     if (!asaId) return;
     this.resetConfigs();
     let configsOk = true;

@@ -32,7 +32,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   margin-bottom: 0.5rem;
   .hidden-input {
@@ -53,9 +53,10 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
-    margin-right: 1rem;
+    margin: 0.125rem 1rem 0 0;
     font-size: 2em;
     width: 2em;
+    min-width: 2em;
     height: 1em;
     border-radius: 0.5em;
     background: var(--input-bg);

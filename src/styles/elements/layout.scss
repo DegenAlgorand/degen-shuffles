@@ -31,3 +31,9 @@ body {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
+
+.columns {
+  display: grid;
+  gap: var(--container-padding);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}

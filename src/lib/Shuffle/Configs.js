@@ -1,8 +1,11 @@
 import { omit, omitBy, isNil } from 'lodash';
+import Validator from './Validator';
 const defaultConfigs = {
   assetId: undefined,
   assetName: '',
   creatorAddress: undefined,
+  url: undefined,
+  twitter: undefined,
   description: undefined,
   decreasePreviousWinners: true,
   requireOptin: false,
@@ -35,14 +38,15 @@ export default class Configs {
   // remove asset params and empty values
   // ----------------------------------------------
   getConfigsObj() {
-    const withoutEmpty = omitBy(this.configs, isNil);
-    const withoutAssetParams = omit(withoutEmpty, [
+    const withoutAssetParams = omit(this.configs, [
       'assetId',
       'assetName',
       'creatorAddress',
     ]);
     return withoutAssetParams;
   }
+
+
 
   //
   // Validate configs
@@ -54,32 +58,16 @@ export default class Configs {
       ...newConfigs,
     }
 
-    // ASA name
-    if (!configs.assetName || typeof configs.assetName !== 'string') {
-      this.addError({
-        code: 'REQUIRED',
-        key: 'assetName', 
-        message: 'ASA name is required',
-      });
-    }
-    if (configs.assetName.length > 32) {
-      this.addError({
-        code: 'TOO_LONG',
-        key: 'assetName', 
-        message: 'The maximum length for an ASA name is 32 characters',
-      });
-    }
+    const validator = new Validator(configs);
+    
+    validator.require('assetName');
+    validator.maxLength('assetName', 32);
 
-    // Description
-    if (configs.description) {
-      if(configs.description.length > 300) {
-        this.addError({
-          code: 'TOO_LONG',
-          key: 'description', 
-          message: 'The maximum length for description is 300 characters',
-        });
-      }
-    } 
+    validator.maxLength('url', 96);
+    validator.maxLength('twitter', 16);
+    validator.maxLength('description', 300);
+
+    this.errors = validator.errors;
 
     if (!this.hasErrors) {
       this.configs = configs;

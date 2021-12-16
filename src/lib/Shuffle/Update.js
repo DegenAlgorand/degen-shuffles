@@ -1,8 +1,6 @@
 import { get } from 'svelte/store';
 import algoClient from '../algoClient';
 import { wallet } from '../../stores/wallet';
-import popup from '../../lib/popup';
-
 
 
 export default class Update {

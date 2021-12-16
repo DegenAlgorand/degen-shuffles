@@ -6,7 +6,7 @@
 <style lang="scss">
   @import '../../styles/variables';
   header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

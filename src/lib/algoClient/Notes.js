@@ -1,4 +1,5 @@
 import { Buffer } from 'buffer/';
+import { omitBy, isNil } from 'lodash';
 export default class Notes {
 
   //
@@ -9,6 +10,9 @@ export default class Notes {
     Object.entries(obj).forEach(([key, value]) => {
       if (typeof value === 'boolean') obj[key] = value.toString();
     });
+    obj = omitBy(obj, (v) => (
+      isNil(v) || v === ''
+    ));
     return this.algosdk.encodeObj(obj);
   }
 

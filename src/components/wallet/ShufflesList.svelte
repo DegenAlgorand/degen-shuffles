@@ -2,6 +2,7 @@
   import { tick } from 'svelte';
   import { wallet } from '../../stores/wallet';
   import { shuffles } from '../../stores/shuffles';
+  import { showWalletMenu } from '../../stores/ui';
   import algoClient from '../../lib/algoClient';
   import Loading from '../elements/LoadingInline.svelte';
   import { SHUFFLE_UNIT } from '../../vars';
@@ -9,6 +10,10 @@
   let loading = false;
   let prevAddress = '';
   $: $wallet.currentAddress, $shuffles, getAccountShuffles();
+
+  function closeMenu() {
+    showWalletMenu.set(false);
+  }
 
 
   async function getAccountShuffles() {
@@ -82,7 +87,11 @@
       <ul>
         {#each $wallet.shuffles as shuffle}
           <li>
-            <a class="text-link" href="/shuffle?id={shuffle.assetId}">
+            <a 
+              class="text-link" 
+              href="/shuffle?id={shuffle.assetId}" 
+              on:click={closeMenu}
+            >
               <span class="name">{shuffle.assetName}</span>
               <span class="asset-id">({shuffle.assetId})</span>
             </a>
