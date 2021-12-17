@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import algoClient from '../algoClient';
 import { wallet } from '../../stores/wallet';
-import { SHUFFLE_UNIT } from '../../vars';
+import vars from '../../vars';
 
 
 
@@ -21,7 +21,7 @@ export default class Create {
       type: 'acfg',
       from: $wallet.currentAddress,
       assetName: this.configs.assetName,
-      assetUnitName: SHUFFLE_UNIT,
+      assetUnitName: vars.SHUFFLE_UNIT,
       assetDecimals: 0,
       assetTotal: 1,
       assetURL: 'degenshuffles.xyz',

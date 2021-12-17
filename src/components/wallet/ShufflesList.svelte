@@ -5,7 +5,7 @@
   import { showWalletMenu } from '../../stores/ui';
   import algoClient from '../../lib/algoClient';
   import Loading from '../elements/LoadingInline.svelte';
-  import { SHUFFLE_UNIT } from '../../vars';
+  import vars from '../../vars';
 
   let loading = false;
   let prevAddress = '';
@@ -36,7 +36,7 @@
   // TODO: move to a seperate file
   async function getAllShuffles() {
     const response = await algoClient.searchForAssets({
-			unit: SHUFFLE_UNIT,
+			unit: vars.SHUFFLE_UNIT,
 		});
 		if (!response.assets) return;
 		const allShuffles = response.assets
@@ -72,6 +72,9 @@
       margin-left: 0.25em;
     }
   }
+  .creator-icon {
+    margin-right: 0.5em;
+  }
 </style>
 
 {#if $wallet.currentAddress }
@@ -92,6 +95,9 @@
               href="/shuffle?id={shuffle.assetId}" 
               on:click={closeMenu}
             >
+              {#if shuffle.creatorAddress === $wallet.currentAddress}
+                <i class="creator-icon fas fa-clipboard-list"></i>
+              {/if}
               <span class="name">{shuffle.assetName}</span>
               <span class="asset-id">({shuffle.assetId})</span>
             </a>

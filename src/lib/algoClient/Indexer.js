@@ -1,4 +1,4 @@
-import { INDEXER_URL } from '../../vars'; 
+import vars from '../../vars'; 
 
 export default class Indexer {
   //
@@ -7,7 +7,7 @@ export default class Indexer {
   async indexerApi(endpoint, params = {}) {
     try {
       const queryString = new URLSearchParams(params).toString();
-      const response = await fetch(`${INDEXER_URL}${endpoint}?${queryString}`);
+      const response = await fetch(`${vars.INDEXER_URL}${endpoint}?${queryString}`);
       return await response.json();
     }
     catch (error) {

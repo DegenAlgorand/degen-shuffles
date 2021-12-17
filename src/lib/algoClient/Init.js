@@ -1,4 +1,4 @@
-import { API_URL } from '../../vars';
+import vars from '../../vars';
 
 export default class Init {
   constructor () {
@@ -11,7 +11,7 @@ export default class Init {
     if (!window || !window.algosdk) return;
     this.myAlgo = new window.MyAlgoConnect();
     this.algosdk = window.algosdk;
-    this.algod = new this.algosdk.Algodv2('', API_URL, '');  
+    this.algod = new this.algosdk.Algodv2('', vars.API_URL, '');  
   }
 }
 
