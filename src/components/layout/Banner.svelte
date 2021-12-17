@@ -11,7 +11,7 @@
     justify-content: center;
     position: relative;
   }
-
+  
   .container {
     position: relative;
     padding-top: 2rem;

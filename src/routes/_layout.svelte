@@ -24,7 +24,7 @@
 
 <main 
 	class="app-wrapper" 
-	style={`padding-top: ${$navBarHeight}px;`}
+	style={`padding-top: ${$navBarHeight + 48}px;`}
 >
 	<slot></slot>
 </main>

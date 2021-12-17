@@ -35,5 +35,5 @@ body {
 .columns {
   display: grid;
   gap: var(--container-padding);
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }

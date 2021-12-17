@@ -12,13 +12,22 @@
 </script>
 
 <style lang="scss">
-  
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
 </style>
 
 {#if isCreator}
   <div class="container">
     <button class="btn" on:click|preventDefault={editConfigs} >
       Edit
+    </button>
+
+    <button class="primary-btn" on:click|preventDefault={null} >
+      Pick winners
     </button>
   </div>
 {/if}

@@ -31,6 +31,18 @@
   }
 }
 
+.primary-btn { 
+  @extend %btn;
+  color: var(--white);
+  background: var(--gradient);
+  border: none;
+  &:hover {
+    color: var(--white);
+    background: var(--red);
+  }
+}
+
+
 .ghost-btn { 
   @extend %btn;
   color: var(--white);

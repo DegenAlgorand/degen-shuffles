@@ -13,12 +13,13 @@
     z-index: 20;
   }
   .full-width-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    background: var(--dark-blue);
   }
   .logo {
     font-size: 1.5rem;

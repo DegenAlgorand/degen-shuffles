@@ -91,14 +91,14 @@
 
   <Toggle
     label="Require Opt-In"
-    info="People must opt-in to have a chance to win."
+    info="Users must opt-in to participate."
     name="requireOptin"
   />
 
   <Toggle
     label="Decrease previous winners odds"
     info="The odds of a wallet to be picked decrease after each win."
-    name="decreasePreviousWinners"
+    name="decreasePrevious"
   />
 
   <div class="actions">

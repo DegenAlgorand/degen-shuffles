@@ -10,15 +10,23 @@
   .meta {
     margin: 0 0 2em;
     padding: 1em 0;
-    border-top: 1px solid vaR(--border-color);
-    border-bottom: 1px solid vaR(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    row-gap: 0.5em;
+  }
+  .label {
+    font-weight: bold;
+  }
+  .icon {
+    color: var(--red);
+    margin-right: 0.5em;
   }
 </style>
 
 {#if configs}
   <div class="container">
-    <ul class="meta">
-      <li class="asaId">
+    <ul class="meta columns">
+      <li>
         <span class="label">
           Asset ID: 
         </span>
@@ -29,7 +37,7 @@
         </span>
       </li>
 
-      <li class="creator">
+      <li>
         <span class="label">
           Creator: 
         </span>
@@ -39,6 +47,22 @@
           </a>
         </span>
       </li>
+
+      {#if configs.requireOptin}
+        <li>
+          <span class="label">
+            <i class="icon fas fa-check-square"></i> Opt-in required
+          </span>
+        </li>
+      {/if}
+
+      {#if configs.decreasePrevious}
+        <li>
+          <span class="label">
+            <i class="icon fas fa-check-square"></i> Decrease previous winners odds
+          </span>
+        </li>
+      {/if}
     </ul>
   </div>
 {/if}

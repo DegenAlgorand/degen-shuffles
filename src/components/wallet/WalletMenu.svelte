@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .wrapper {
-    padding: 0 var(--container-padding) var(--container-padding);
+    padding: var(--container-padding);
     height: 100%;
     overflow: auto;
   }
