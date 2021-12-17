@@ -4,7 +4,7 @@
 </script>
 
 <style lang="scss">
-  @import '../../styles/variables';
+  @import '../../styles/mixins';
   header {
     position: absolute;
     top: 0;
@@ -24,8 +24,9 @@
   .logo {
     font-size: 1.5rem;
     font-family: var(--title-font);
-    vertical-align: middle;
     margin: 0;
+    vertical-align: middle;
+    position: relative;
     a {
       color: var(--white);
       text-decoration: none;
@@ -34,10 +35,26 @@
       }
     }
     img {
-      display: inline-block;
       width: 1.5em;
       margin-right: 0.25em;
       margin-top: -0.125em;
+      display: none;
+      @include min-width(24rem) {
+        display: inline-block;
+      }
+    }
+    .app-name {
+      display: inline-block;
+    }
+    .tag {
+      font-size: 0.5em;
+      text-transform: uppercase;
+      line-height: 1;
+      padding: 0.25em 0.5em;
+      margin-left: -3em;
+      display: inline-block;
+      background: var(--red) var(--gradient);
+      transform: translate(0, 0.5em) rotate(-6deg);
     }
   }
   nav {
@@ -53,7 +70,10 @@
     <h1 class="logo">
       <a href="/">
         <img src="/images/degen-shuffles-white.svg" alt="DEGEN Shuffles logo" />
-        DEGEN Shuffles
+        <span class="app-name">
+          DEGEN Shuffles
+          <span class="tag">Beta</span>
+        </span>
       </a>
     </h1>
 

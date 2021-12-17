@@ -25,6 +25,7 @@
   }
   .opt-out {
     margin-top: 0.5em;
+    font-size: 0.75em;
   }
 </style>
 

@@ -32,7 +32,7 @@
   </p>
   <p>
     The odds of a wallet getting picked depend on the amount of $degen it holds, 
-    and decrease with each win. 
+    and decrease with each win if the shuffle unless it's configured otherwise. 
   </p>
 
   <div class="cta">

@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { navBarHeight } from '../stores/ui';
 	import Nav from '../components/layout/Nav.svelte';
+	import Footer from '../components/layout/Footer.svelte';
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 	import Scripts from '../components/elements/Scripts.svelte';
 	import Popup from '../components/popups/Popup.svelte';
@@ -28,6 +29,8 @@
 >
 	<slot></slot>
 </main>
+
+<Footer />
 
 <Popup />
 <Loading />
