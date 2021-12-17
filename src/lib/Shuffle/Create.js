@@ -15,8 +15,6 @@ export default class Create {
     if (!$wallet.currentAddress) return;
 
     const configs = this.getConfigsObj();
-    console.log(configs)
-    
     const txn = await algoClient.txn({
       fee: 1000,
       flatFee: true,

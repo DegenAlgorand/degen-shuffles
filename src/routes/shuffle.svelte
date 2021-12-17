@@ -2,11 +2,13 @@
   import { onMount } from 'svelte';
   import { stores } from '@sapper/app';
   import { loading } from '../stores/ui';
+  import { wallet } from '../stores/wallet';
   import Shuffle from '../lib/Shuffle';
   import Banner from '../components/layout/Banner.svelte';
   import ShuffleToolbar from '../components/shuffle/ShuffleToolbar.svelte';
   import ShuffleLinks from '../components/shuffle/ShuffleLinks.svelte';
   import ShuffleMetas from '../components/shuffle/ShuffleMetas.svelte';
+  import ShuffleOptIn from '../components/shuffle/ShuffleOptIn.svelte';
   import NotFound from './_error.svelte';
   
   const { page } = stores();
@@ -42,13 +44,14 @@
 
 {:else}
   {#if loaded}
-    {#key $shuffle}
+    {#key $shuffle && $wallet}
       <ShuffleToolbar {shuffle} />
       <Banner>
         <h1 class="page-title">
-          {shuffle.configs.assetName}
+          {$shuffle.configs.assetName}
         </h1>       
         <ShuffleLinks {shuffle} />
+        <ShuffleOptIn {shuffle} />
       </Banner>
       <ShuffleMetas {shuffle} />
       

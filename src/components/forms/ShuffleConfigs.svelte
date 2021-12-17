@@ -98,7 +98,7 @@
   <Toggle
     label="Decrease previous winners odds"
     info="The odds of a wallet to be picked decrease after each win."
-    name="decreasePrevious"
+    name="decreasePrevWinners"
   />
 
   <div class="actions">

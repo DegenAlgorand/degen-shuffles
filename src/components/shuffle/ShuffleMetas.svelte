@@ -56,7 +56,7 @@
         </li>
       {/if}
 
-      {#if configs.decreasePrevious}
+      {#if configs.decreasePrevWinners}
         <li>
           <span class="label">
             <i class="icon fas fa-check-square"></i> Decrease previous winners odds
