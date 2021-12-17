@@ -1,4 +1,4 @@
-import { omit, omitBy, isNil } from 'lodash';
+import { omit, pickBy } from 'lodash';
 import Validator from './Validator';
 const defaultConfigs = {
   assetId: undefined,
@@ -8,7 +8,7 @@ const defaultConfigs = {
   twitter: undefined,
   description: undefined,
   decreasePrevWinners: true,
-  requireOptin: false,
+  requireOptin: true,
 }
 
 
@@ -52,11 +52,13 @@ export default class Configs {
   // Validate configs
   // ----------------------------------------------
   validateConfigs (newConfigs) {
+    const validKeys = Object.keys(defaultConfigs);
     this.clearErrors();
-    const configs = {
+    let configs = {
       ...this.configs,
       ...newConfigs,
     }
+    configs = pickBy(configs, (value, key) => validKeys.includes(key));
 
     const validator = new Validator(configs);
     

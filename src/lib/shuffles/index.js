@@ -1,19 +1,17 @@
 import Errors from '../Errors';
-import Configs from './Configs';
-import Create from './Create';
+import Init from './Init';
 import Read from './Read';
 import Update from './Update';
-import OptIn from './OptIn';
 import Subscribe from './Subscribe';
 import { aggregate } from '../../helpers/classes';
 
 
-export default class Shuffle extends aggregate(
+class Shuffles extends aggregate(
   Errors,
-  Configs, 
-  Create,
+  Init,
   Read,
   Update,
-  OptIn,
   Subscribe,
 ) {}
+
+export default new Shuffles();

@@ -1,12 +1,19 @@
 <script>
 	import { onMount } from 'svelte';
 	import { navBarHeight } from '../stores/ui';
+	import holders from '../lib/holders';
+	import shuffles from '../lib/shuffles';
 	import Nav from '../components/layout/Nav.svelte';
 	import Footer from '../components/layout/Footer.svelte';
 	import WalletMenu from '../components/wallet/WalletMenu.svelte';
 	import Scripts from '../components/elements/Scripts.svelte';
 	import Popup from '../components/popups/Popup.svelte';
 	import Loading from '../components/elements/LoadingFullscreen.svelte';
+
+	onMount(() => {
+		holders.init();
+		shuffles.init();
+	})
 </script>
 
 <style lang="scss" global>
