@@ -54,12 +54,26 @@
             <i class="icon fas fa-check-square"></i> Opt-in required
           </span>
         </li>
+      {:else}
+        <li>
+          <span class="label">
+            <i class="icon fas fa-check-square"></i> No opt-in required. Every holder can win.
+          </span>
+        </li>
       {/if}
 
       {#if configs.decreasePrevWinners}
         <li>
           <span class="label">
             <i class="icon fas fa-check-square"></i> Decrease previous winners odds
+          </span>
+        </li>
+      {/if}
+
+      {#if configs.useLogScale}
+        <li>
+          <span class="label">
+            <i class="icon fas fa-check-square"></i> Use logarithmic scale
           </span>
         </li>
       {/if}

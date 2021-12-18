@@ -33,9 +33,21 @@
     margin: auto;
     width: 100%;
     max-width: var(--container-width);
-    padding: calc(var(--container-padding));
     position: relative;
     z-index: 2;
+  }
+  .close-btn {
+    color: var(--light-blue);
+    padding: 0.5em;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+    outline: none;
+    background: none;
+    &:hover {
+      color: var(--red);
+    }
   }
   .overlay {
     position: fixed;
@@ -59,10 +71,13 @@
     >
       <div class="popup-content" role="dialog">
         <svelte:component 
-          this={popup.component} 
-          {...popup.props}
-          on:close={close}
+        this={popup.component} 
+        {...popup.props}
+        on:close={close}
         />   
+        <button class="close-btn" on:click|preventDefault={close}>
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
       <div class="overlay" on:click|self={close} />

@@ -4,17 +4,28 @@
   import { loading } from '../../stores/ui';
   import popup from '../../lib/popup';
   import Shuffle from '../../lib/Shuffle';
-  import TextField from './fields/TextField.svelte';
+  import NumberField from '../forms/fields/NumberField.svelte';
+  import Error from '../popups/ErrorPopup.svelte';
   export let shuffle = new Shuffle();
 
-  const formData = writable(shuffle.configs);
+  const formData = writable({});
   setContext('form', formData);
 
   async function submit(e) {
     e.preventDefault();
     loading.set(true);
-    
-    console.log($formData);
+
+    const qty = Number($formData.qty); 
+    if (!qty) {
+      popup.open(Error, {
+        message: 'You need at least one winner...'
+      });
+      loading.set(false);
+      return
+    }
+
+    const winnersTxn = await shuffle.pick(qty);
+    console.log(winnersTxn);
 
     loading.set(false);
   }
@@ -39,15 +50,17 @@
 <form on:submit={submit}>
 
 
-  <TextField
-    label="How many winners to pick?"
+  <NumberField
+    label="How many winners do you want?"
     name="qty"
-    rows="4"
+    min="1"
+    max="16"
+    defaultValue="1"
   />
 
   <div class="actions">
     <button type="submit" class="btn">
-      Pick me some lucky degens 
+      Pick me some lucky degenerates
     </button>
   </div>
 </form>

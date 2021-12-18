@@ -3,6 +3,7 @@ const mode = 'TESTNET';
 
 const shared = {
   SHUFFLE_UNIT: 'DGNSHUFF',
+  MIN_AMOUNT_TO_CREATE: 420,
 }
 const testnet = {
   API_URL: 'https://api.testnet.algoexplorer.io',

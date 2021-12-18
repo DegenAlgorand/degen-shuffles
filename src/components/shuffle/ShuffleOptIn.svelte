@@ -38,6 +38,7 @@
 
 {#if configs.requireOptin && configs.creatorAddress !== $wallet.currentAddress }
   <div class="wrapper">
+    <!-- Wallet holds $degen -->
     {#if holders.isHolder($wallet.currentAddress)}
       {#if shuffle.optedIn }
         <span class="fake-btn">
@@ -54,6 +55,7 @@
         </button>
       {/if}
 
+    <!-- Wallet is $degenless -->
     {:else}
         <p class="warning">
           <i class="fas fa-exclamation-triangle"></i> You need to hold at least 1 $degen to opt-in.

@@ -4,6 +4,7 @@ import Create from './Create';
 import Read from './Read';
 import Update from './Update';
 import OptIn from './OptIn';
+import Picker from './Picker';
 import Subscribe from './Subscribe';
 import { aggregate } from '../../helpers/classes';
 
@@ -15,5 +16,6 @@ export default class Shuffle extends aggregate(
   Read,
   Update,
   OptIn,
+  Picker,
   Subscribe,
 ) {}

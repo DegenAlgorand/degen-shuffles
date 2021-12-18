@@ -7,8 +7,10 @@ const defaultConfigs = {
   url: undefined,
   twitter: undefined,
   description: undefined,
-  decreasePrevWinners: true,
   requireOptin: true,
+  decreasePrevWinners: true,
+  useLogScale: false,
+  creatorCanWin: false,
 }
 
 

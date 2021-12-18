@@ -5,9 +5,9 @@
   import { loading } from '../../stores/ui';
   import popup from '../../lib/popup';
   import Shuffle from '../../lib/Shuffle';
-  import TextField from './fields/TextField.svelte';
-  import TextareaField from './fields/TextareaField.svelte';
-  import Toggle from './fields/Toggle.svelte';
+  import TextField from '../forms/fields/TextField.svelte';
+  import TextareaField from '../forms/fields/TextareaField.svelte';
+  import Toggle from '../forms/fields/Toggle.svelte';
   import AssetCreated from '../popups/AssetCreated.svelte';
   export let shuffle = new Shuffle();
   export let mode = 'edit';
@@ -99,6 +99,18 @@
     label="Decrease previous winners odds"
     info="The odds of a wallet to be picked decrease after each win."
     name="decreasePrevWinners"
+  />
+
+  <Toggle
+    label="Use logarithmic scale"
+    info="Use a logarithmic scale to calculate each account weight. This helps reduce the odds of whales to win, but can lead people to split their bags into multiple accounts to increase their chances."
+    name="useLogScale"
+  />
+
+  <Toggle
+    label="Shuffle creator can win"
+    info="Can the creator be a winner? Might be useful if you're running the shuffles for someone else."
+    name="creatorCanWin"
   />
 
   <div class="actions">

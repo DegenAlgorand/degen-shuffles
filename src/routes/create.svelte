@@ -2,7 +2,7 @@
   import { wallet } from '../stores/wallet';
   import { shortenAddress } from '../helpers/address';
   import Banner from '../components/layout/Banner.svelte';
-  import ShuffleConfigs from '../components/forms/ShuffleConfigs.svelte'; 
+  import ShuffleConfigs from '../components/shuffle/ShuffleConfigs.svelte'; 
 </script>
 
 <style lang="scss">

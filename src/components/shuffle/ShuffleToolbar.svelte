@@ -1,12 +1,17 @@
 <script>
   import { wallet } from '../../stores/wallet';
   import popup from '../../lib/popup';
-  import ShuffleConfigs from '../forms/ShuffleConfigs.svelte';
+  import ShuffleConfigs from './ShuffleConfigs.svelte';
+  import ShufflePicker from './ShufflePicker.svelte';
   export let shuffle = {};
   const isCreator = $wallet.currentAddress === shuffle.configs.creatorAddress;
 
   function editConfigs() {
     popup.open(ShuffleConfigs, {mode: 'edit', shuffle});
+  }
+
+  function pickWinners() {
+    popup.open(ShufflePicker, {shuffle});
   }
 
 </script>
@@ -27,7 +32,7 @@
       Edit
     </button>
 
-    <button class="primary-btn" on:click|preventDefault={null} >
+    <button class="primary-btn" on:click|preventDefault={pickWinners} >
       Pick winners
     </button>
   </div>
