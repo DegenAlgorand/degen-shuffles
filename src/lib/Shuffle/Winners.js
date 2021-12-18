@@ -27,8 +27,7 @@ export default class Winners {
     rounds.forEach(round => { 
       this.addWinnersRound(round);
     });
-    
-    console.log(this.winners);
+
     this.dispatchUpdate();
     return this.winners;
   }

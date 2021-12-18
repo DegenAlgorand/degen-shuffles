@@ -4,7 +4,6 @@
   import holders from '../../lib/holders';
   export let shuffle = {};
   const configs = shuffle.configs;
-  
   async function optIn() {
     loading.set(true);
     const txn = await shuffle.optIn();
@@ -38,8 +37,14 @@
 
 {#if configs.requireOptin && configs.creatorAddress !== $wallet.currentAddress }
   <div class="wrapper">
+    <!-- Must be logged ind -->
+    {#if !$wallet.currentAddress}
+      <p class="warning">
+        <i class="fas fa-exclamation-triangle"></i> Connect your wallet to opt-in
+      </p>
+
     <!-- Wallet holds $degen -->
-    {#if holders.isHolder($wallet.currentAddress)}
+    {:else if holders.isHolder($wallet.currentAddress)}
       {#if shuffle.optedIn }
         <span class="fake-btn">
           Opted In!

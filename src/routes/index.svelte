@@ -1,5 +1,6 @@
 <script>
   import Banner from '../components/layout/Banner.svelte';
+  import shuffles from '../lib/shuffles';
 </script>
 
 <style lang="scss">
@@ -13,6 +14,21 @@
     padding: 2em 0;
     border-top: 1px solid $border-color; 
     border-bottom: 1px solid $border-color; 
+  }
+  .shuffles {
+    margin-top: 2em;
+  }
+  .card {
+    padding: var(--container-padding);
+    border: 1px solid var(--light-blue);
+    margin-bottom: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      font-size: 0.75em;
+    }
   }
 </style>
 
@@ -35,10 +51,26 @@
     and decrease with each win if the shuffle unless it's configured otherwise. 
   </p>
 
-  <div class="cta">
-    <a class="btn" href="/create">
-      Create a Shuffle
-    </a>
-  </div>
+  {#if false}
+    <div class="cta">
+      <a class="btn" href="/create">
+        Create a Shuffle
+      </a>
+    </div>
+  {/if}
 
+  {#key $shuffles }
+    {#if shuffles.all && shuffles.all.length }
+      <ul class="shuffles">
+        {#each shuffles.all as shuffle}
+          <li class="shuffle card">
+            <h3 class="card-title">{shuffle.assetName}</h3>
+            <a class="btn" href="/shuffle?id={shuffle.assetId}">
+              View Shuffle
+            </a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+  {/key}
 </div>
