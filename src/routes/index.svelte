@@ -53,7 +53,7 @@
 
   {#if false}
     <div class="cta">
-      <a class="btn" href="/create">
+      <a class="btn" href="/new">
         Create a Shuffle
       </a>
     </div>
