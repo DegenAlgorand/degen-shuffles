@@ -15,7 +15,7 @@ jobs:
         uses: truewebartisans/actions-sapper@master
         with:
           build_mode: "export"
-          args: "--legacy --entry / create shuffle"
+          args: "--legacy --entry shuffle"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
