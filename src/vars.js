@@ -1,4 +1,4 @@
-const mode = 'TESTNET';
+const mode = 'MAINNET';
 
 const shared = {
   SHUFFLE_UNIT: 'DGNSHUFF',
