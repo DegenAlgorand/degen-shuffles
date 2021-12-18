@@ -17,6 +17,10 @@
   span {
     color: var(--light-blue);
   }
+  // links used by the crawler to build the static pages
+  .hidden-links {
+    display: none;
+  }
 </style>
 
 
@@ -27,4 +31,9 @@
       Degen Token
     </a> on Algorand.
   </span>
+</div>
+
+<div class="hidden-links">
+  <a href="/new">New shuffle</a>
+  <a href="/shuffle">Shuffle</a>
 </div>
