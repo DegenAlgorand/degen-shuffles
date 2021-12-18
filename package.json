@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy --entry 'new shuffle'",
+    "export": "sapper export --legacy",
     "start": "node __sapper__/build"
   },
   "dependencies": {
