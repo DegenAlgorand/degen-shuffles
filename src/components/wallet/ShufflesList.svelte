@@ -18,11 +18,16 @@
     if (prevAddress === $wallet.currentAddress) return;
     loading = true;
     prevAddress = $wallet.currentAddress;
-    if (!shuffles.all.length) return;
-    if (!$wallet.currentAddress) return;
+    if (!shuffles.all.length || !$wallet.currentAddress) {
+      loading = false;
+      return;
+    }
     const response = await algoClient.lookupAccountByID($wallet.currentAddress);
     const assets = response.account.assets;
-    if (!assets || !assets.length) return;
+    if (!assets || !assets.length) {
+      loading = false;
+      return;
+    } 
     const walletAssetsIds = assets.map( asset => asset['asset-id']);
     $wallet.shuffles = shuffles.all.filter(asset => walletAssetsIds.includes(asset.assetId));
     loading = false;
