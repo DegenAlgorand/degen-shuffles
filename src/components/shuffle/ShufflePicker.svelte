@@ -26,7 +26,9 @@
 
     const winnersTxn = await shuffle.pick(qty);
     console.log(winnersTxn);
-
+    if (winnersTxn) {
+      popup.close();
+    }
     loading.set(false);
   }
 </script>

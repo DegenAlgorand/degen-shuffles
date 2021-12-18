@@ -29,6 +29,11 @@ export default class Picker {
       if (this.configs.useLogScale){
         account.weight = Math.log(account.weight);
       }
+      // decrease previous wins?
+      if (this.configs.decreasePrevWinners) {
+        account.previousWins = this.getWinnerCount(account.address);
+        account.weight = account.weight / (account.previousWins + 1);
+      }
     });
     // loop to pick winners
     for (let q=0; q<qty; q++) {
@@ -56,8 +61,12 @@ export default class Picker {
     }
     // Save winners
     const txn = await this.saveWinners(winners);
-
-    return ;
+    if (!txn) {
+      this.popError('Oops... Could not save winners to blockchain');
+      return;
+    }
+    this.dispatchUpdate();
+    return txn;
   }
 
 
@@ -65,22 +74,24 @@ export default class Picker {
   // Save winners on chain
   // ----------------------------------------------
   async saveWinners (winners = []) {
-
-    console.log(winners);
-    // const txn = await algoClient.txn({
-    //   fee: 1000,
-    //   flatFee: true,
-    //   type: 'acfg',
-    //   from: $wallet.currentAddress,
-    //   assetName: this.configs.assetName,
-    //   assetUnitName: vars.SHUFFLE_UNIT,
-    //   assetDecimals: 0,
-    //   assetTotal: 1,
-    //   assetURL: 'degenshuffles.xyz',
-    //   assetManager: $wallet.currentAddress,
-    //   assetReserve: $wallet.currentAddress,
-    //   assetDefaultFrozen: false,
-    //   note: algoClient.encodeNote(configs)
-    // });
+    const round = {
+      _type: 'winners',
+      round: this.currentWinnersRound + 1,
+      winners: winners.map(account => ({
+        address: account.address,
+      })),
+    }
+    const txn = await algoClient.txn({
+      assetIndex: this.configs.assetId,
+      amount: 0,
+      type: 'axfer',
+      from: this.configs.creatorAddress,
+      to: this.configs.creatorAddress,
+      note: algoClient.encodeNote(round)
+    });
+    if (txn) {
+      this.addWinnersRound(round);
+    }
+    return txn;
   }
 }

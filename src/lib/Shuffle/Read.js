@@ -42,6 +42,9 @@ export default class Read {
     // get asset optins
     const assetBalances = await algoClient.lookupAssetBalances(this.configs.assetId);
     this.optIns = assetBalances.balances.map(balance => balance.address);
+    // get winners history
+    const winnersHistory = await this.getWinnersHistory();
+    if (!winnersHistory) console.log('Could not retreive winners history');
     return true;
   }
 }
