@@ -23,9 +23,7 @@ export default class Winners {
     const hasTransactions = winnersTxns && winnersTxns.transactions && winnersTxns.transactions.length;
     if (!hasTransactions) return false;
 
-    let rounds = winnersTxns.transactions.map(transaction => algoClient.decodeNote(transaction.note))
-    rounds = rounds.sort((a, b) => b.round - a.round);
-    
+    let rounds = winnersTxns.transactions.map(transaction => algoClient.decodeNote(transaction.note));    
     rounds.forEach(round => { 
       this.addWinnersRound(round);
     });
@@ -41,7 +39,8 @@ export default class Winners {
   // ----------------------------------------------
   addWinnersRound(round) {
     if (!round || !round.round || !round.winners) return;
-    this.rounds.unshift(round);
+    this.rounds.push(round);
+    this.rounds.sort((a, b) => b.round - a.round)
     for(let i=0; i<round.winners.length; i++) {
       const roundWinner = round.winners[i];
       const winnerIndex = this.winners.findIndex(winner => winner.address === roundWinner.address)

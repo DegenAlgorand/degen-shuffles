@@ -9,6 +9,7 @@
   import ShuffleLinks from '../components/shuffle/ShuffleLinks.svelte';
   import ShuffleMetas from '../components/shuffle/ShuffleMetas.svelte';
   import ShuffleOptIn from '../components/shuffle/ShuffleOptIn.svelte';
+  import ShuffleWinners from '../components/shuffle/ShuffleWinners.svelte';
   import NotFound from './_error.svelte';
   
   const { page } = stores();
@@ -60,6 +61,9 @@
           <p>{shuffle.configs.description}</p>
         {/if}
       </div>
+
+      <ShuffleWinners {shuffle} />
+
     {/key}
   {/if}
 {/if}
