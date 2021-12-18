@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "build": "sapper build --legacy 'shuffle create'",
+    "export": "sapper export --legacy --entry 'shuffle create'",
     "start": "node __sapper__/build"
   },
   "dependencies": {
