@@ -16,7 +16,7 @@ jobs:
         with:
           build_mode: "export"
           args: > 
-            --legacy --entry "shuffle new"
+            --legacy --entry shuffle new
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
