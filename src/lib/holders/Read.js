@@ -8,11 +8,13 @@ export default class Read {
   // ----------------------------------------------
   async getHolders () {
     const response = await algoClient.lookupAssetBalances(vars.DEGEN_ASSET_ID, {
-      'currency-greater-than': 0,
+      limit: 5000,
+      loop: true,
     });
+
     if (!response || !response.balances) return this.all;
     this.all = response.balances
-      .filter(account => account.address !== vars.DEGEN_LP_ADDRESS)
+      .filter(account => account.amount && account.address !== vars.DEGEN_LP_ADDRESS)
       .sort((a,b) => b.amount - a.amount);
     this.dispatchUpdate()
     return this.all;

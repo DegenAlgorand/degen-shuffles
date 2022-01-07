@@ -16,7 +16,7 @@ export default class Init {
     if (!window || !window.algosdk) return;
     this.myAlgo = new window.MyAlgoConnect();
     this.algosdk = window.algosdk;
-    this.algod = new this.algosdk.Algodv2('', vars.API_URL, '');
+    this.algod = new this.algosdk.Algodv2(vars.API_KEY || '', vars.API_URL, '');
     this.ready = true;
     if (this.queue.length) {
       this.queue.forEach(callback => {

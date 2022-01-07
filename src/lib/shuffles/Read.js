@@ -7,6 +7,7 @@ export default class Read {
   async getAllShuffles() {
     const response = await algoClient.searchForAssets({
 			unit: vars.SHUFFLE_UNIT,
+			loop: true,
 		});
 		if (!response.assets) return this.all;
 		const allShuffles = response.assets

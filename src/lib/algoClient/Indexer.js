@@ -6,9 +6,35 @@ export default class Indexer {
   // ----------------------------------------------
   async indexerApi(endpoint, params = {}) {
     try {
-      const queryString = new URLSearchParams(params).toString();
-      const response = await fetch(`${vars.INDEXER_URL}${endpoint}?${queryString}`);
-      return await response.json();
+      let loop = false;
+      if (params.loop) {
+        loop = true;
+        delete params.loop;
+      }
+      let queryString = new URLSearchParams(params).toString();
+      let response = await fetch(`${vars.INDEXER_URL}${endpoint}?${queryString}`);
+      let data = await response.json();
+      if (loop) {
+        while (data['next-token']) {
+          queryString = new URLSearchParams({ ...params, next: data['next-token']}).toString();
+          response = await fetch(`${vars.INDEXER_URL}${endpoint}?${queryString}`);
+          let temp = await response.json();
+          // remove next-token
+          delete data['next-token'];
+          // loop paged data
+          Object.entries(temp).forEach(([key, value]) => {
+            // merge arrays
+            if (value.length !== undefined && data[key]) {
+              data[key] = [ ...data[key], ...value ];
+            }
+            // overwrite other types
+            else {
+              data[key] = value;
+            } 
+          });
+        }
+      }
+      return data;
     }
     catch (error) {
       console.dir(error);
