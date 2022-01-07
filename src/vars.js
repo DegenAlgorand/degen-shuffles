@@ -14,8 +14,8 @@ const testnet = {
 }
 
 const mainnet = {
-  API_URL: 'https://algoexplorerapi.io/',
-  INDEXER_URL: 'https://algoexplorerapi.io/idx2',
+  API_URL: 'https://api.algoexplorer.io',
+  INDEXER_URL: 'https://algoindexer.algoexplorerapi.io',
   DEGEN_ASSET_ID: '417708610',
   DEGEN_LP_ADDRESS: 'HPSDZOIBAPREKKIKWDLKRKLQKFOFU3KH6NGVS3YGVZD3E7ZIK2ZPKYSRNU',
 }

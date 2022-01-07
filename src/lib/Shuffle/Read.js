@@ -29,6 +29,7 @@ export default class Read {
       'address': this.configs.creatorAddress,
       'address-role': 'sender',
       'tx-type': 'acfg',
+      loop: true,
     });
     const hasTransactions = configTxns && configTxns.transactions && configTxns.transactions.length;
     if (!hasTransactions) return false;
