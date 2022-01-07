@@ -25,6 +25,6 @@
 </script>
 
 <svelte:head>
-  <script bind:this={algosdkScript} src="/scripts/algosdk.min.js" async></script>
+  <script bind:this={algosdkScript} src="/scripts/algosdk.1.13.0-beta.2.min.js" async></script>
 	<script bind:this={myalgoScript} src="/scripts/myalgo.min.js" async></script>
 </svelte:head>

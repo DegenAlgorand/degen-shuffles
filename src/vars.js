@@ -7,8 +7,8 @@ const shared = {
 }
 
 const testnet = {
-  API_URL: 'https://api.testnet.algoexplorer.io',
-  INDEXER_URL: 'https://api.testnet.algoexplorer.io/idx2',
+  API_URL: 'https://node.testnet.algoexplorerapi.io',
+  INDEXER_URL: 'https://algoindexer.testnet.algoexplorerapi.io',
   DEGEN_ASSET_ID: '52327125',
   DEGEN_LP_ADDRESS: '3X3LP2EGKUI3YHRMGBC2TWSSNYPXIKSECSCVYU5H3G642RQE74XX2DU6BQ',
 }
